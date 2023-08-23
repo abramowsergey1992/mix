@@ -1,0 +1,36 @@
+body {
+	background: $dark;
+	--inner-padding: 194px;
+	--inner-sm-padding: 72px;
+	font-family: 'Helvetica Neue';
+	color: #fff;
+
+}
+
+#pagescroll {
+	padding-top: 172px;
+}
+
+.inner {
+	padding: 0 var(--inner-padding);
+}
+
+.inner-sm {
+	padding: 0 var(--inner-sm-padding);
+}
+
+input,
+button {
+	font-family: Helvetica Neue;
+}
+
+._br {
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+._only-desc {
+	@media(max-width:992px) {
+		display: none;
+	}
+}

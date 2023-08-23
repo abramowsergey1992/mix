@@ -1,0 +1,48 @@
+.afisha-detail {
+	&__grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		margin-bottom: 157px;
+		gap: 40px;
+	}
+
+	&__left {
+		img {
+			max-width: 100%;
+			width: 466px;
+
+		}
+	}
+
+
+	&__right {
+		display: flex;
+		flex-direction: column;
+
+		p {
+			margin-left: 0px;
+			max-width: 100%;
+			@include clampf(16px, 20px);
+			font-weight: 500;
+			line-height: 150%;
+			max-width: 466px;
+			margin-bottom: 36px;
+		}
+	}
+
+	&__top {
+		margin-bottom: 65px;
+
+		p {
+			text-transform: uppercase;
+		}
+	}
+
+	&__content {
+		margin-bottom: auto;
+	}
+
+	&__auto {
+		margin-top: 65px;
+	}
+}

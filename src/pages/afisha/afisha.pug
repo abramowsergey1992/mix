@@ -1,0 +1,88 @@
+extends ../../layout/layout
+block title
+	title Афиша
+block content
+	main(data-barba="container" data-barba-namespace="about")
+		.inner
+			.title-box._br
+				.title-box__bg
+					+picture('afisha','jpg')
+				.title-box__content
+					h1.title-box__title-1 АФИША
+					.h1.title-box__title-2 Твоя 
+						i ночь 
+						| в миксе 
+			.block(data-scroll data-scroll-delay="0.6") 
+				.block__head-row
+					.block__head Афиша
+				.block__body 
+					.afisha-slider
+						.inner
+							.afisha-slider__swiper.swiper 
+								.swiper-wrapper
+									.swiper-slide
+										.afisha-slider__photo._br 
+											+picture('af-s-1','jpg')
+										.afisha-slider__date 07 — 08 JULY
+										.afisha-slider__title SUMMER SESSION EPISODES 3:
+											br
+											| «RETROGRADE MERCURY»
+
+										.afisha-slider__footer 
+											a(href="afisha-detail.html") Забронировать стол 
+									.swiper-slide
+										.afisha-slider__photo._br 
+											+picture('af-s-2','jpg')
+										.afisha-slider__date 14 — 15 JULY
+										.afisha-slider__title SUMMER SESSION EPISODES 4: 
+											br
+											| «ATLANTIDA»
+										.afisha-slider__footer 
+											a(href="afisha-detail.html") Забронировать стол 
+									.swiper-slide
+										.afisha-slider__photo._br 
+											+picture('af-s-3','jpg')
+										.afisha-slider__date 14 JULY
+										.afisha-slider__title SPECIAL GUEST:
+											br
+											|BADWOLF (MEXICO)
+										.afisha-slider__footer 
+											a(href="afisha-detail.html") Забронировать стол 
+								.afisha-slider__cursor
+									img(src="img/slider-cursor.svg", alt="")
+			.block(data-scroll data-scroll-delay="0.6") 
+				.block__head Прошедшие мероприятия
+				.block__body
+					table.program
+						tr 
+							td 23 — 24 JUNE
+							td SUMMER SESSIONSEPISODE 1 — CHINA TOWN
+						tr 
+							td 19 JUNE
+							td SANDER ZHUKOV
+						tr 
+							td 17 JUNE
+							td REBRN (ISRAEL) | DIYNAMIC MUSIC
+						tr 
+							td 16 JUNE
+							td SUNBIOS
+						tr 
+							td 17 JUNE
+							td REBRN [ISRAEL] | DIYNAMIC MUSIC
+						tr 
+							td 16 JUNE
+							td SUNBIOS
+
+			.next-page 
+				.next-page__wrap
+					.next-page__bg
+						+picture('afisha-detail','jpg')
+					.next-page__content
+						a.next-page__title-1(href="afisha-detail.html") Афиша
+						.h1.next-page__title-2 Вкусы 
+							i ночной 
+							| Москвы
+
+					.next-page__number 03
+					a.next-page__next(href="afisha-detail.html") Далее
+

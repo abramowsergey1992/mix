@@ -1,0 +1,51 @@
+extends ../../layout/layout
+block title
+	title Клубная карта
+block content
+	main(data-barba="container" data-barba-namespace="clubcard")
+		.inner
+			.title-box._br
+				.title-box__bg
+					+picture('cc','jpg')
+				.title-box__content
+					h1.title-box__title-1 КЛУБНАЯ КАРТЫ
+					.h1.title-box__title-2  
+						i Women's 
+						| club cards 
+			.block(data-scroll data-scroll-delay="0.6") 
+				.block__head Заполните анкету для получения клубной карты
+				.block__body
+					form.form(action="/" method="post")#card-form
+						.form__grid 
+							label.form__item
+								span.form__item-title Ф.И.О.
+								input(type="text",name="name", placeholder="Иванова Ирина Алексеевна")
+							label.form__item
+								span.form__item-title Дата рождения
+								input(type="text",name="db", placeholder="00.00.0000")
+							label.form__item
+								span.form__item-title Номер телефона
+								input(type="text",name="phone",placeholder='+7 ___-___-__-__')
+							label.form__item
+								span.form__item-title Instagram аккаунт
+								input(type="text",name="insta",placeholder="@instagram")
+						.form__footer
+							button(type="submit").arrow-link
+								span Отправить
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+									<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+									<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+								</svg>
+			.next-page 
+				.next-page__wrap
+					.next-page__bg
+						+picture('afisha','jpg')
+					.next-page__content
+						a.next-page__title-1(href="afisha.html") Афиша
+						.h1.next-page__title-2 Твоя 
+							i ночь 
+							| в миксе
+
+					.next-page__number 02
+					a.next-page__next(href="afisha.html") Далее
+

@@ -1,0 +1,108 @@
+extends ../../layout/layout
+block title
+	title Афиша детальная
+block content
+	main(data-barba="container" data-barba-namespace="about")
+		.inner
+			.title-box._br
+				.title-box__bg
+					+picture('afisha','jpg')
+				.title-box__content
+					h1.title-box__title-1 АФИША
+					.h1.title-box__title-2 Твоя 
+						i ночь 
+						| в миксе 
+			.block(data-scroll data-scroll-delay="0.6") 
+				
+				.block__head 
+					.block__head-links
+						a(href="afisha.html").arrow-link-b._mr-auto
+							<svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M7.06982 12.0195L1.41982 6.36953L7.06982 0.709531" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+								<path d="M2.7298 6.3711L19.7998 6.37109" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+							</svg>
+							span Назад 
+						a(href="afisha.html").arrow-link
+							span Забронировать стол 
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+								<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+								<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+							</svg>
+							
+				.block__body.afisha-detail 
+					.afisha-detail__grid 
+						.afisha-detail__left 
+							+picture('af-s-1','jpg')._br
+						.afisha-detail__right 
+							.afisha-detail__top
+								p 14 — 15 ИЮЛЯ 
+									br
+									| SUMMER SESSION EPISODES 4: «ATLANTIDA»
+							.afisha-detail__content 
+								p Приготовьтесь окунуться в неповторимые ритмы морских волн, которые будут переполнять вашу душу и заставят  вас танцевать до рассвета.  «Atlantida» — это удивительное путешествие,  где сливаются человеческая страсть  и безмятежность океана.
+							.afisha-detail__bottom
+								p Вход: 1000 руб. | Девушкам: Free
+									br
+									| Бронь столов: +7 (495) 748-61-99
+									br
+									| FC | DC | 21+
+			.programs-grid
+
+				.block(data-scroll data-scroll-delay="0.6") 
+					.block__head Line-up: 14 июля
+					.block__body
+						table.program
+							tr 
+								td 00:00 — 02:00
+								td Raevskiy
+							tr 
+								td 02:00 — 04:00
+								td Deflee
+							tr 
+								td 04:00 — 06:00
+								td Stereoporno 
+							tr 
+								td 06:00 — 08:00
+								td Dobrov & Garrison
+							tr 
+								td 08:00 — 10:00
+								td Croff 
+							tr 
+								td 10:00 — 12:00
+								td Gorin
+				.block(data-scroll data-scroll-delay="0.6") 
+					.block__head Line-up: 15 июля
+					.block__body
+						table.program
+							tr 
+								td 00:00 — 02:00
+								td Vartan 
+							tr 
+								td 02:00 — 04:00
+								td Sarab
+							tr 
+								td 04:00 — 06:00
+								td Nobe
+							tr 
+								td 06:00 — 08:00
+								td Natasha Wax & Sony Vibe
+							tr 
+								td 08:00 — 10:00
+								td Matvienkov 
+							tr 
+								td 10:00 — 12:00
+								td Croff
+
+			.next-page 
+				.next-page__wrap
+					.next-page__bg
+						+picture('afisha-detail','jpg')
+					.next-page__content
+						a.next-page__title-1(href="afisha-detail.html") Афиша
+						.h1.next-page__title-2 Вкусы 
+							i ночной 
+							| Москвы
+
+					.next-page__number 03
+					a.next-page__next(href="afisha-detail.html") Далее
+
