@@ -1,135 +1,60 @@
-mixin picture(name, ext)
-	picture
-		if ext!='svg'
-			source(type="image/webp",srcset="img/"+name+".webp")
-		img(class!=attributes.class, alt="",src="img/"+name+"."+ext)
-
-doctype html
-html(lang="ru")
-	block head
-		head
-			
-			block title
-			meta(content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport")
-			meta(content="ie=edge" http-equiv="x-ua-compatible")
-			<link rel="preconnect" href="https://fonts.googleapis.com">
-			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-			<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-			link(rel="stylesheet" href="css/c.css")
-	
-			<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-			<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-			<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-			<link rel="manifest" href="/site.webmanifest">
-			<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-			<meta name="msapplication-TileColor" content="#2b5797">
-			<meta name="theme-color" content="#ffffff">
-
-
-	body
-		.page 
-			.inner 
-				.header
-					.header__logo 
-						img(src="img/c-logo.svg", alt="") 
-					.header__right 
-						a(href="mailto:yk@vocalize.ru")
-							<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M23.8571 20C23.8571 22.1302 22.1302 23.8571 20 23.8571C17.8698 23.8571 16.1429 22.1302 16.1429 20C16.1429 17.8698 17.8698 16.1429 20 16.1429C22.1302 16.1429 23.8571 17.8698 23.8571 20ZM23.8571 20V21.2857C23.8571 22.7059 25.0084 23.8571 26.4286 23.8571C27.3408 23.8571 28.1422 23.3821 28.5986 22.6658C28.8528 22.2671 29 21.7936 29 21.2857V20C29 15.0294 24.9706 11 20 11C15.0294 11 11 15.0294 11 20C11 24.9706 15.0294 29 20 29C21.9122 29 23.6851 28.4037 25.1429 27.3868" stroke="#394153" stroke-width="2" stroke-linecap="square"/>
-							</svg>
-							| yk@vocalize.ru
-						a(href="tel:+7 916 276-16-69")
-							<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M16.822 12H14.2857C13.0233 12 12 13.0233 12 14.2857V16.5714C12 22.8833 17.1167 28 23.4286 28H25.7143C26.9767 28 28 26.9767 28 25.7143V24.1349C28 23.702 27.7554 23.3063 27.3682 23.1127L24.6072 21.7322C23.9851 21.4211 23.2318 21.7332 23.0119 22.393L22.6716 23.4139C22.4511 24.0752 21.7728 24.4688 21.0892 24.3321C18.3535 23.785 16.215 21.6465 15.6679 18.9108C15.5312 18.2272 15.9248 17.5489 16.5861 17.3284L17.8531 16.9061C18.4197 16.7173 18.7453 16.1241 18.6005 15.5447L17.9307 12.8657C17.8035 12.3569 17.3464 12 16.822 12Z" stroke="#394153" stroke-width="2" stroke-linecap="square"/>
-							</svg>
-							| +7 916 276-16-69
-				.block
-					+picture('c-1','jpg')._bbr 
-				.block 
-					h2 We have been working for 6 years
-					p Results of 2022
-					.grid-3 
-						div 
-							+picture('c-2','jpg')._br
-						div 
-							+picture('c-3','jpg')._br
-						div 
-							+picture('c-4','jpg')._br
-				.block 
-					h2 Our clients:
-					.grid-1-2
-						div
-							div(style="max-width:188px")
-								+picture('c-5','jpg')._br
+extends ../../layout/layout
+block title
+	title О клубе
+block content
+	main(data-barba="container" data-barba-namespace="front")
+		.front
+			.inner  
+				.front__number 01
+				.front__player 
+					.front__player-wrap
 						
-						div 
-							+picture('c-6','jpg')._br
-				.block 
-					h2 Our outbound phone calls services
-					.grid-3 
-						div 
-							+picture('c-7','jpg')._br
-						div 
-							+picture('c-8','jpg')._br
-						div 
-							+picture('c-9','jpg')._br
-					.mt-30
-						+picture('c-10','jpg')._bbr
-				.block 
-					h2 Why robot more preferable?
-					.grid-2-1
-						div
-							.grid-2
-								div 
-									+picture('c-11','jpg')._br
-								div 
-									+picture('c-12','jpg')._br
-								div 
-									+picture('c-13','jpg')._br
-								div 
-									+picture('c-14','jpg')._br
-						div
-							+picture('c-15','png').robot
-				.block 
-					h2 The customer’s order confirmation service
-					p The 
-						color cross-sale 
-						| on outgoing order confirmation calls
-					.grid-3._mt-40
-						div 
-							+picture('c-16','jpg')._br
-						div 
-							+picture('c-17','jpg')._br
-						div 
-							+picture('c-18','jpg')._br
-						div.col-2
-							+picture('c-19','jpg')._br
-						div
-							+picture('c-20','png')._br
-			.footer
-				.inner 
-					.footer__row
-						.footer__left
-							.footer__logo 
-								img(src="img/c-logo.svg", alt="") 
-							.footer__links
-								a(href="mailto:yk@vocalize.ru")
-									<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M23.8571 20C23.8571 22.1302 22.1302 23.8571 20 23.8571C17.8698 23.8571 16.1429 22.1302 16.1429 20C16.1429 17.8698 17.8698 16.1429 20 16.1429C22.1302 16.1429 23.8571 17.8698 23.8571 20ZM23.8571 20V21.2857C23.8571 22.7059 25.0084 23.8571 26.4286 23.8571C27.3408 23.8571 28.1422 23.3821 28.5986 22.6658C28.8528 22.2671 29 21.7936 29 21.2857V20C29 15.0294 24.9706 11 20 11C15.0294 11 11 15.0294 11 20C11 24.9706 15.0294 29 20 29C21.9122 29 23.6851 28.4037 25.1429 27.3868" stroke="#394153" stroke-width="2" stroke-linecap="square"/>
-									</svg>
-									| yk@vocalize.ru
-								a(href="tel:+7 916 276-16-69")
-									<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M16.822 12H14.2857C13.0233 12 12 13.0233 12 14.2857V16.5714C12 22.8833 17.1167 28 23.4286 28H25.7143C26.9767 28 28 26.9767 28 25.7143V24.1349C28 23.702 27.7554 23.3063 27.3682 23.1127L24.6072 21.7322C23.9851 21.4211 23.2318 21.7332 23.0119 22.393L22.6716 23.4139C22.4511 24.0752 21.7728 24.4688 21.0892 24.3321C18.3535 23.785 16.215 21.6465 15.6679 18.9108C15.5312 18.2272 15.9248 17.5489 16.5861 17.3284L17.8531 16.9061C18.4197 16.7173 18.7453 16.1241 18.6005 15.5447L17.9307 12.8657C17.8035 12.3569 17.3464 12 16.822 12Z" stroke="#394153" stroke-width="2" stroke-linecap="square"/>
-									</svg>
-									| +7 916 276-16-69
-						.footer__right
-							+picture('academ','png').academ
-							+picture('RoboSchool','png').RoboSchool
+						button.front__player-play
+							audio(src="audio/mp3.mp3 ").front__player-audio
+							<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 16.0005L13 21.0005V11.5605L21 16.0005Z" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
+								<path d="M16 31C24.2843 31 31 24.2843 31 16C31 7.71573 24.2843 1 16 1C7.71573 1 1 7.71573 1 16C1 24.2843 7.71573 31 16 31Z" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
+							</svg>
+							span.front__player-text Сейчас в клубе
+				.front__right 
+					.front__right-wrap
+						a.front__right-link(href="club-card.html")
+							span.front__right-number 05
+							span.front__right-text Женская клубная карта
 
-		block scripts
-			<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-			<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
-			</script>
-			script(src='js/vendor.js')
-			script(src='js/main.js')
+				.swiper.front__swiper
+					.swiper-wrapper
+						.swiper-slide.front-card#front-card-1(data-number="04")
+							+picture('f-c-4','jpg')
+							.front-card__content
+								.front-card__pre О КЛУБЕ
+								a.h1.front-card__title(href="about.html") Афтепати — это 
+									i Микс
+								.front-card__after Мекка афтэпати в Москве
+
+						.swiper-slide.front-card#front-card-2(data-number="03")
+							+picture('f-c-3','jpg')
+
+							.front-card__content
+								.front-card__pre О КЛУБЕ
+								a.h1.front-card__title(href="about.html") Афтепати — это 
+									i Микс
+								.front-card__after Мекка афтэпати в Москве
+
+						.swiper-slide.front-card#front-card-3(data-number="02")
+							+picture('f-c-2','jpg')
+							.front-card__content
+								.front-card__pre О КЛУБЕ
+								a.h1.front-card__title(href="about.html") Афтепати — это 
+									i Микс
+								.front-card__after Мекка афтэпати в Москве
+
+						.swiper-slide.front-card#front-card-4(data-number="01")
+							+picture('f-c-1','jpg')
+						
+							.front-card__content
+								.front-card__pre О КЛУБЕ
+								a.h1.front-card__title(href="about.html") Афтепати — это 
+									i Микс
+								.front-card__after Мекка афтэпати в Москве
+

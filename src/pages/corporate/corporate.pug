@@ -1,0 +1,282 @@
+extends ../../layout/layout
+block title
+	title КОРПОРАТИВЫ
+block content
+	main(data-barba="container" data-barba-namespace="food")
+		.inner
+			.title-box._br
+				.title-box__bg
+					+picture('corporate','jpg')
+				.title-box__content
+					h1.title-box__title-1 КОРПОРАТИВЫ
+					.h1.title-box__title-2 Микс 
+						i event   
+						| place 
+			.block(data-scroll data-scroll-delay="0.6") 
+				
+				.block__head 
+					.block__head-links
+						span._mr-auto.mob-border-title Событийная площадка на Триумфальной площади
+						a(href="afisha.html").arrow-link
+							span Забронировать площадку
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+								<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+								<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+							</svg>
+				.block__body 
+					h2 Многофункциональное
+						i ивент-пространство 
+						| на 700 м² в центре Москвы. 
+					p Вход рядом с Триумфальной площадью. 
+						br
+						| Просторные фойе, гардероб, бар в европейском стиле, большой зал, чилл-зона и VIP-комнаты.
+			.photo-slider
+				.photo-slider__swiper.swiper 
+					.swiper-wrapper
+						.swiper-slide 
+							.photo-slider__photo
+								+picture('a-s-1','jpg')
+							.photo-slider__desc Центральная лестница
+						.swiper-slide 
+							.photo-slider__photo
+								+picture('a-s-2','jpg')
+							.photo-slider__desc Приватная комната
+						.swiper-slide
+							.photo-slider__photo
+								+picture('a-s-3','jpg')
+							.photo-slider__desc Приватная комната
+				.photo-slider__cursor
+					img(src="img/slider-cursor.svg", alt="")
+			.block(data-scroll data-scroll-delay="0.6") 
+				
+				.block__head 
+					.block__head-links
+						span._mr-auto.mob-border-title «Микс« event place
+						a(href="afisha.html").arrow-link
+							span Забронировать площадку
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+								<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+								<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+							</svg>
+				.block__body 
+					h2 Большой зал вмещает 
+						br 
+						| до 
+						i 200 человек.
+					p Мобильная мебель обеспечивает любую  конфигурацию пространства под ваши задачи. 
+						br 
+						| От 20 до 200 комфортных посадочных мест  под все ивент-форматы.
+					ul.numberlist
+						li 
+							span.numberlist__number 01
+							p Выставки
+						li
+							span.numberlist__number 02
+							p Конференции
+						li
+							span.numberlist__number 03
+							p Презентации
+
+						li
+							span.numberlist__number 04
+							p Показы мод
+						li
+							span.numberlist__number 05
+							p Корпоративные 
+								br
+								|  мероприятия
+						li
+							span.numberlist__number 06
+							p Премии (вручение 
+								br
+								| наград)
+						li
+							span.numberlist__number 07
+							p Семейные 
+								br
+								| интерактивные шоу 
+
+						li
+							span.numberlist__number 08
+							p Кино 
+								br
+								| и телесъёмки
+
+						li
+							span.numberlist__number 09
+							p Танцевальные 
+								br
+								| проекты
+
+						li
+							span.numberlist__number 10
+							p Пресс-
+								br
+								| мероприятия 
+						li
+							span.numberlist__number 11
+							p Концерты 
+								br
+								| и фестивали
+						li
+							span.numberlist__number 12
+							p Частные 
+								br
+								| праздники
+			.two-photo( data-scroll)
+				.two-photo__big
+					+picture('c-1','jpg')._br
+				.two-photo__small
+					+picture('c-1','jpg')._br
+			.block(data-scroll) 
+				
+				.block__head 
+					.block__head-links
+						span._mr-auto.mob-border-title Техническая сторона впечатляет
+						a(href="afisha.html").arrow-link
+							span Скачать техническое оснащение
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+								<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+								<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+							</svg>
+				.block__body 
+					h2 Полный парк современного мультимедийного оборудования: видео, звук, свет.
+					p Подавайте информацию в любом формате,  создавайте WOW-эффект и впечатляйте вашу  публику атмосферой. Не беспокойтесь о технических специалистах и подрядчиках — у нас действительно всё есть.
+					.three-columns
+						.three-columns__item
+							.three-columns__number 01
+							.three-columns__title 4 метра
+							.three-columns__desc
+								p 
+									span.three-columns__title-mob 4 метра 
+									| LED-экран
+									br
+									| (c отдельным
+									br
+									| ПК для управления видеоконтентом)
+
+						.three-columns__item
+							.three-columns__number 02
+							.three-columns__title 18 кВт
+							.three-columns__desc 
+								p 
+									span.three-columns__title-mob 18 кВт
+									| звука 
+									br
+									| (микшеры / 
+									br
+									| микрофоны / 
+									br
+									| dj-комплекты)
+
+						.three-columns__item
+							.three-columns__number 03
+							.three-columns__title > 60
+							.three-columns__desc 
+								p
+									span.three-columns__title-mob > 60
+									| световых приборов (прожекторы / головы / стробоскопы / генераторы тумана и дыма)
+			.photo-slider
+				.photo-slider__swiper.swiper 
+					.swiper-wrapper
+						.swiper-slide 
+							.photo-slider__photo
+								+picture('a-s-1','jpg')
+							.photo-slider__desc Центральная лестница
+						.swiper-slide 
+							.photo-slider__photo
+								+picture('a-s-2','jpg')
+							.photo-slider__desc Приватная комната
+						.swiper-slide
+							.photo-slider__photo
+								+picture('a-s-3','jpg')
+							.photo-slider__desc Приватная комната
+				.photo-slider__cursor
+					img(src="img/slider-cursor.svg", alt="")
+			.block(data-scroll data-scroll-delay="0.6") 
+				
+				.block__head 
+					.block__head-links
+						span._mr-auto.mob-border-title Банкетная служба
+						a(href="afisha.html").arrow-link
+							span Забронировать площадку
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+								<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+								<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+							</svg>
+				.block__body 
+					h2 Профессиональный 
+						br
+						| кейтеринг 
+						i высшего
+						| класса.
+					p Мы сотрудничаем с сервисными компаниями федерального и международного уровня.
+						br 
+						| Это меню любой сложности и топовыйобслуживающий персонал.
+			.two-photo(data-scroll)
+				.two-photo__small
+					+picture('c-1','jpg')._br
+				.two-photo__big
+					+picture('c-1','jpg')._br
+			.block(data-scroll data-scroll-delay="0.6") 
+				.block__head 
+					.block__head-links
+						span._mr-auto Дополнительные параметры  площадки
+						a(href="afisha.html").arrow-link
+							span Забронировать площадку
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+								<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+								<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+							</svg>
+				.block__body 
+					ul.numberlist
+						li 
+							span.numberlist__number 01
+							p Электроснабжение
+
+						li 
+							span.numberlist__number 02
+							p Гардероб
+						li 
+							span.numberlist__number 03
+							p Сцена 
+
+						li 
+							span.numberlist__number 04
+							p Гримёрная зона
+
+						li 
+							span.numberlist__number 05
+							p Оборудованная 
+								br
+								| зона кухни
+
+						li 
+							span.numberlist__number 06
+							p Система климат-
+								br
+								| контроля и вентиляции
+
+						li 
+							span.numberlist__number 07
+							p Видеонаблюдение
+								br
+								| и контроль доступа
+						li 
+							span.numberlist__number 08
+							p 10 
+								br
+								| туалетов
+			.next-page 
+				.next-page__wrap
+					.next-page__bg
+						+picture('gallery','jpg')
+					.next-page__content
+						a.next-page__title-1(href="corporate.html") КОРПОРАТИВЫ
+						.h1.next-page__title-2 Микс 
+							i event 
+							|  place  
+
+					.next-page__number 05
+					a.next-page__next(href="corporate.html") Далее
+

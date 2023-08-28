@@ -1,0 +1,86 @@
+extends ../../layout/layout
+block title
+	title Забронирвать стол
+block content
+	main(data-barba="container" data-barba-namespace="bookCorp")
+		#popup-template
+		.inner
+			.block(data-scroll data-scroll-delay="0.6") 
+				.block__head 
+					.block__head-links
+						a(href="corporate.html")._ml-auto.arrow-link-b._ml-auto
+							span Закрыть 
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+								<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+								<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+							</svg>
+				.block__body 
+						.block
+							.block__head Бронь площадки 
+							.block__body 
+								form.form(action="/" method="post")#booktable-form
+									.form__grid 
+										label.form__item
+											span.form__item-title Ваше имя
+											input(type="text",name="name", placeholder="Иванова Ирина Алексеевна")
+										label.form__item
+											span.form__item-title E-mail
+											input(type="text",name="mail", placeholder="ivanov@mail.ru")
+										
+										label.form__item
+											span.form__item-title Номер телефона
+											input(type="text",name="phone",placeholder='+7 ___-___-__-__')
+										label.form__item
+											span.form__item-title Кол-во гостей
+											input(type="text",name="count", placeholder="1 500")
+										label.form__item
+											span.form__item-title Бюджет 
+												spanspan._only-desc мероприятия
+											input(type="text",name="price", placeholder="200 000")
+										label.form__item
+											span.form__item-title Дата
+											input.air(type="text",name="date",placeholder="00.00.0000")
+										.form__item
+											span.form__item-title Банкетная служба
+											.form__item-radios 
+												label.form__item-radio
+													input(type="radio",name="service",value="Фуршет")
+													span Фуршет
+												label.form__item-radio
+													input(type="radio",name="service",value="Кофебрейк")
+													span Кофебрейк
+												label.form__item-radio
+													input(type="radio",name="service",value="Банкет")
+													span Банкет
+										label.form__item
+											span.form__item-title Формат 
+												span._only-desc мероприятия
+											.select2-wrap
+												select(name="format").select2
+													option
+													option(value="Новый год")  Новый год
+													option(value="Свадьба")  Свадьба
+													option(value="Корпоратив")  Корпоратив
+													option(value="Киносъёмка")  Киносъёмка
+													option(value="Новый год")  Новый год
+													option(value="Свадьба")  Свадьба
+													option(value="Корпоратив")  Корпоратив
+													option(value="Киносъёмка")  Киносъёмка
+													option(value="Новый год")  Новый год
+													option(value="Свадьба")  Свадьба
+													option(value="Корпоратив")  Корпоратив
+													option(value="Киносъёмка")  Киносъёмка
+													option(value="Новый год")  Новый год
+													option(value="Свадьба")  Свадьба
+													option(value="Корпоратив")  Корпоратив
+													option(value="Киносъёмка")  Киносъёмка
+												
+												
+									.form__footer
+										button(type="submit").arrow-link
+											span Забронировать стол
+											<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+												<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+												<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+											</svg>
+									

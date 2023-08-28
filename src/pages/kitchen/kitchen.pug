@@ -1,0 +1,183 @@
+extends ../../layout/layout
+block title
+	title ЕДА & БАР
+block content
+	main(data-barba="container" data-barba-namespace="food")
+		.inner
+			.title-box._br
+				.title-box__bg
+					+picture('afisha-detail','jpg')
+				.title-box__content
+					h1.title-box__title-1 ЕДА & БАР
+					.h1.title-box__title-2 Твоя 
+						i ночь 
+						| в миксе 
+			.block(data-scroll data-scroll-delay="0.6") 
+				.block__head-row._kitchen-row
+					.block__head 
+						.block__tabs 
+							button.block__tab(type="button" data-tab="#tab-1")._active Кухня
+							button.block__tab(type="button" data-tab="#tab-2") Бар
+							button.block__tab(type="button" data-tab="#tab-3") Vip Бар
+							button.block__tab(type="button" data-tab="#tab-4") Паровые коктейли
+					.block__head 
+						.block__head-links
+							a(href="afisha.html").arrow-link._mr-auto
+								span Посмотреть меню
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+									<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+									<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+								</svg>
+							a(href="afisha.html").arrow-link
+								span Забронировать стол
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+									<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+									<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+								</svg>
+				.block__body 
+					.h2 Каждый ваш ужин превратится в незабываемой 
+						i микс вкусов 
+						| c ноткой ночной Москвы.
+					p Урбан-кухня с азиатскими нотами. Свежие местные сезонные продукты. VIP-бар с элитным алкоголем и деликатными закусками.
+		
+			#tab-1
+				.photo-slider
+					.photo-slider__swiper.swiper 
+						.swiper-wrapper
+							.swiper-slide
+								.photo-slider__photo
+									+picture('r-2','jpg')
+								.photo-slider__desc Цветки цукини в кляре во фритюре по итальянски
+							.swiper-slide
+								.photo-slider__photo
+									+picture('r-3','jpg')
+								.photo-slider__desc Карпаччо из говядины
+							.swiper-slidethis.swiper
+								.photo-slider__photo
+									+picture('r-1','jpg')
+								.photo-slider__desc Карпаччо из говядины
+							.swiper-slidethis.swiper
+								.photo-slider__photo
+									+picture('a-s-1','jpg')
+								.photo-slider__desc Центральная лестница
+							.swiper-slide
+								.photo-slider__photo
+									+picture('a-s-2','jpg')
+								.photo-slider__desc Приватная комната
+							.swiper-slide
+								.photo-slider__photo
+									+picture('a-s-3','jpg')
+								.photo-slider__desc Приватная комната
+							
+					.photo-slider__cursor
+						img(src="img/slider-cursor.svg", alt="")
+				
+			#tab-2
+				.photo-slider
+					.photo-slider__swiper.swiper 
+						.swiper-wrapper
+							.swiper-slide
+								.photo-slider__photo
+									+picture('r-2','jpg')
+								.photo-slider__desc Цветки цукини в кляре во фритюре по итальянски
+							.swiper-slide
+								.photo-slider__photo
+									+picture('r-3','jpg')
+								.photo-slider__desc Карпаччо из говядины
+							.swiper-slidethis.swiper
+								.photo-slider__photo
+									+picture('r-1','jpg')
+								.photo-slider__desc Карпаччо из говядины
+							.swiper-slidethis.swiper
+								.photo-slider__photo
+									+picture('a-s-1','jpg')
+								.photo-slider__desc Центральная лестница
+							.swiper-slide
+								.photo-slider__photo
+									+picture('a-s-2','jpg')
+								.photo-slider__desc Приватная комната
+							.swiper-slide
+								.photo-slider__photo
+									+picture('a-s-3','jpg')
+								.photo-slider__desc Приватная комната
+							
+					.photo-slider__cursor
+						img(src="img/slider-cursor.svg", alt="")
+				
+			#tab-3
+				.photo-slider
+					.photo-slider__swiper.swiper 
+						.swiper-wrapper
+							.swiper-slide
+								.photo-slider__photo
+									+picture('r-2','jpg')
+								.photo-slider__desc Цветки цукини в кляре во фритюре по итальянски
+							.swiper-slide
+								.photo-slider__photo
+									+picture('r-3','jpg')
+								.photo-slider__desc Карпаччо из говядины
+							.swiper-slidethis.swiper
+								.photo-slider__photo
+									+picture('r-1','jpg')
+								.photo-slider__desc Карпаччо из говядины
+							.swiper-slidethis.swiper
+								.photo-slider__photo
+									+picture('a-s-1','jpg')
+								.photo-slider__desc Центральная лестница
+							.swiper-slide
+								.photo-slider__photo
+									+picture('a-s-2','jpg')
+								.photo-slider__desc Приватная комната
+							.swiper-slide
+								.photo-slider__photo
+									+picture('a-s-3','jpg')
+								.photo-slider__desc Приватная комната
+							
+					.photo-slider__cursor
+						img(src="img/slider-cursor.svg", alt="")
+				
+			#tab-4
+				.photo-slider
+					.photo-slider__swiper.swiper 
+						.swiper-wrapper
+							.swiper-slide
+								.photo-slider__photo
+									+picture('r-2','jpg')
+								.photo-slider__desc Цветки цукини в кляре во фритюре по итальянски
+							.swiper-slide
+								.photo-slider__photo
+									+picture('r-3','jpg')
+								.photo-slider__desc Карпаччо из говядины
+							.swiper-slidethis.swiper
+								.photo-slider__photo
+									+picture('r-1','jpg')
+								.photo-slider__desc Карпаччо из говядины
+							.swiper-slidethis.swiper
+								.photo-slider__photo
+									+picture('a-s-1','jpg')
+								.photo-slider__desc Центральная лестница
+							.swiper-slide
+								.photo-slider__photo
+									+picture('a-s-2','jpg')
+								.photo-slider__desc Приватная комната
+							.swiper-slide
+								.photo-slider__photo
+									+picture('a-s-3','jpg')
+								.photo-slider__desc Приватная комната
+							
+					.photo-slider__cursor
+						img(src="img/slider-cursor.svg", alt="")
+				
+			.next-page 
+				.next-page__wrap
+					.next-page__bg
+						+picture('reserv','jpg')
+					.next-page__content
+						a.next-page__title-1(href="reserv.html") Резерв
+						.h1.next-page__title-2 Открой 
+							i свой 
+							| микс  
+
+					.next-page__number 04
+					a.next-page__next(href="reserv.html") Далее
+

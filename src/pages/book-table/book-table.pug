@@ -1,0 +1,67 @@
+extends ../../layout/layout
+block title
+	title Забронирвать стол
+block content
+	main(data-barba="container" data-barba-namespace="bookTable")
+		#popup-template
+		.inner
+			.block(data-scroll data-scroll-delay="0.6") 
+				.block__head 
+					.block__head-links
+						a(href="reserv.html")._ml-auto.arrow-link-b
+							span Закрыть 
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+								<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+								<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+							</svg>
+				.block__body.book-table
+					.book-table__gallery-wrap
+						.book-table__gallery
+							
+							.book-table__swiper.swiper 
+								.swiper-wrapper
+									.swiper-slide 
+										+picture('a-s-1','jpg')
+										
+									.swiper-slide 
+										+picture('a-s-2','jpg')
+										
+									.swiper-slide
+										+picture('a-s-3','jpg')
+										
+							.book-table__cursor
+								img(src="img/slider-cursor.svg", alt="")
+						
+					.book-table__right 
+						.block
+							.block__head Бронь 
+							.block__body 
+								form.form(action="/" method="post")#booktable-form
+									label.form__item
+										span.form__item-title Ваше имя
+										input(type="text",name="name", placeholder="Иванова Ирина Алексеевна")
+									label.form__item
+										span.form__item-title Кол-во гостей
+										input(type="text",name="count", placeholder="0")
+									label.form__item
+										span.form__item-title Номер телефона
+										input(type="text",name="phone",placeholder='+7 ___-___-__-__')
+									label.form__item
+										span.form__item-title Дата
+										input(type="text",name="date",placeholder="00.00.0000")
+									label.form__item
+										span.form__item-title Номер стола
+										input(type="text",name="table",placeholder="0")
+									label.form__item
+										span.form__item-title Стоимость
+										input(type="text",name="price",value="60 000 руб.")
+											
+									.form__footer
+										button(type="submit").arrow-link
+											span Забронировать стол
+											<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+												<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+												<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+											</svg>
+									.form__desc 
+										p В стоимость бронирование входит заказ по кухне и бару на сумму депозита и бесплатный вход в клуб для всех гостей. 

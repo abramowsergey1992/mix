@@ -4,6 +4,12 @@
 		grid-template-columns: 1fr 1fr;
 		margin-bottom: 157px;
 		gap: 40px;
+
+		@media(max-width:800px) {
+			gap: 25px;
+			margin-bottom: 70px;
+			grid-template-columns: 1fr;
+		}
 	}
 
 	&__left {
@@ -32,6 +38,10 @@
 
 	&__top {
 		margin-bottom: 65px;
+
+		@media(max-width:800px) {
+			margin-bottom: 50px;
+		}
 
 		p {
 			text-transform: uppercase;

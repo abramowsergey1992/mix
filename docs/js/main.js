@@ -76,9 +76,139 @@ $(function () {
 
 $(function(){})
 $(function(){})
-$(function(){})
-$(function () {});
+function bookTable() {
+	if ($(".book-table__gallery").length) {
+		$(".book-table__gallery").each(function () {
+			let $th = $(this);
+			let speed = 2000;
+			let swiper = new Swiper($th.find(".book-table__swiper")[0], {
+				centeredSlides: true,
+				loop: true,
+				loopedSlides: 7,
+				observerParent: true,
+				observerUpdate: true,
+				observer: true,
+				slidesPerView: 1,
+				speed: speed,
+				spaceBetween: 0,
+				// autoplay: {
+				// 	delay: 0,
+				// },
+			});
+			let hover = false;
+			let play = false;
+			let direction = "";
+			let t = 0;
+			let interval = setInterval(function () {
+				console.log();
+				if (play) {
+					if (t == 0) {
+						console.log(direction, $th, swiper);
+						if (direction == "LEFT") {
+							swiper.slidePrev();
+						}
+						if (direction == "RIGHT") {
+							swiper.slideNext();
+						}
+					}
+					t += 100;
+					if (t == speed) {
+						t = 0;
+					}
+				}
+			}, 100);
+			$(this).hover(
+				function () {
+					play = true;
+				},
+				function () {
+					play = false;
+				}
+			);
 
+			let $cursor = $(this).find(".book-table__cursor");
+
+			$(this).mousemove(function (e) {
+				console.log(e);
+				gsap.to($cursor, 0.23, {
+					left: e.pageX - $th.offset().left,
+					top: e.pageY - $th.offset().top,
+					ease: Power4.easOut,
+				});
+
+				direction = "";
+				if (play && e.clientX < $(this).innerWidth() / 2) {
+					play = true;
+					direction = "LEFT";
+					t = 0;
+					console.log("autoplay left");
+				}
+
+				if (play && e.clientX > $(this).innerWidth() / 2) {
+					t = 0;
+					play = true;
+					direction = "RIGHT";
+					console.log("autoplay right");
+				}
+			});
+		});
+	}
+}
+$(function () {
+	bookTable();
+});
+
+$(function(){})
+$(function(){})
+$(function(){})
+function front() {
+	var isPlaying = false;
+	$(".front__player-play").click(function () {
+		if (isPlaying) {
+			$(".front__player-play").removeClass("_play");
+			$(".front__player-audio")[0].pause();
+			isPlaying = false;
+		} else {
+			isPlaying = true;
+			$(".front__player-play").addClass("_play");
+			$(".front__player-audio")[0].play();
+		}
+	});
+	var swiper = new Swiper(".front__swiper", {
+		// effect: "cards",
+		speed: 1000,
+		// loop: false,
+		// loopAdditionalSlides: 5,
+		// cardsEffect: {
+		// 	slideShadows: false,
+		// 	rotate: false,
+		// 	perSlideOffset: 11,
+		// 	perSlideRotate: 0,
+		// },
+		mousewheel: {},
+		on: {
+			slideChange: function (swiper) {
+				$(".front__number").text(
+					$(swiper.slides[swiper.activeIndex]).data("number")
+				);
+				$(".front__swiper").attr("data-slide", swiper.activeIndex);
+			},
+		},
+		direction: "vertical",
+		effect: "fade",
+		// virtualTranslate: true,
+		watchSlidesProgress: true,
+		watchOverflow: true,
+		initialSlide: 3,
+	});
+}
+$(function () {
+	front();
+});
+
+
+$(function(){})
+$(function(){})
 $(function(){})
 $(function(){})
 // function footer() {
@@ -88,6 +218,15 @@ $(function(){})
 // 	footer();
 // });
 
+function header() {
+	$(".header__open-menu").click(function () {
+		$(".header").toggleClass("_open-menu");
+	});
+}
+$(function () {
+	header();
+});
+
 $(function () {
 	let scroll = new LocomotiveScroll({
 		el: document.querySelector("[data-scroll-container]"),
@@ -95,10 +234,36 @@ $(function () {
 	});
 	scroll.on("scroll", (args) => {
 		// Get all current elements : args.currentElements
-		// console.log(args);
-		if (typeof args.currentElements["hey"] === "object") {
-			let progress = args.currentElements["hey"].progress;
-			// console.log(progress);
+
+		if (typeof args.currentElements === "object") {
+			// let progress = args.currentElements["hhh"].progress;
+			let progress = 0;
+
+			for (key in args.currentElements) {
+				console.log(
+					$(args.currentElements[key].el).hasClass("two-photo")
+				);
+				if ($(args.currentElements[key].el).hasClass("two-photo")) {
+					let $th = $(args.currentElements[key].el);
+					$th.find(".two-photo__big:first-child").css(
+						"padding-right",
+						args.currentElements[key].progress * 174
+					);
+					$th.find(".two-photo__small:last-child").css(
+						"padding-left",
+						(1 - args.currentElements[key].progress) * 174
+					);
+					$th.find(".two-photo__big:last-child").css(
+						"padding-left",
+						args.currentElements[key].progress * 174
+					);
+					$th.find(".two-photo__small:first-child").css(
+						"padding-right",
+						(1 - args.currentElements[key].progress) * 174
+					);
+				}
+			}
+
 			// ouput log example: 0.34
 			// gsap example : myGsapAnimation.progress(progress);
 		}
@@ -106,6 +271,7 @@ $(function () {
 
 	barba.hooks.after(() => {
 		components();
+		bookTable();
 		afisha();
 		scroll.scrollTo("top", 100);
 		setTimeout(function () {
@@ -157,7 +323,6 @@ function components() {
 				class: `block__h2-line-${i}`,
 			});
 			let flag = 0;
-			console.log($th.html());
 			$th.find("span[line='" + i + "']").each(function () {
 				$line.append($(this).clone());
 				$line.append(" ");
@@ -216,13 +381,24 @@ function components() {
 		$(".photo-slider").each(function () {
 			let $th = $(this);
 			let speed = 2000;
-			const swiper = new Swiper(".photo-slider__swiper", {
+			let swiper = new Swiper($th.find(".photo-slider__swiper")[0], {
 				centeredSlides: true,
 				loop: true,
 				loopedSlides: 7,
+				observerParent: true,
+				observerUpdate: true,
+				observer: true,
 				slidesPerView: "auto",
 				speed: speed,
-				spaceBetween: 215,
+				spaceBetween: 20,
+				breakpoints: {
+					600: {
+						spaceBetween: 100,
+					},
+					1300: {
+						spaceBetween: 215,
+					},
+				},
 				// autoplay: {
 				// 	delay: 0,
 				// },
@@ -232,10 +408,9 @@ function components() {
 			let direction = "";
 			let t = 0;
 			let interval = setInterval(function () {
-				// console.log(play, direction, t);
+				console.log();
 				if (play) {
 					if (t == 0) {
-						console.log(direction);
 						if (direction == "LEFT") {
 							swiper.slidePrev();
 						}
@@ -258,10 +433,9 @@ function components() {
 				}
 			);
 
-			var $cursor = $(this).find(".photo-slider__cursor");
+			let $cursor = $(this).find(".photo-slider__cursor");
 
 			$(this).mousemove(function (e) {
-				console.log($th.offset().top);
 				gsap.to($cursor, 0.23, {
 					left: e.pageX,
 					top: e.pageY - $th.offset().top,
@@ -288,9 +462,40 @@ function components() {
 			});
 		});
 	}
+
+	$(".block__tabs .block__tab").click(function () {
+		$(this)
+			.closest(".block__tabs")
+			.find(".block__tab")
+			.removeClass("_active");
+		$(this).addClass("_active");
+		tabFilter();
+	});
+	function tabFilter() {
+		$(".block__tab").each(function () {
+			if ($(this).hasClass("_active")) {
+				$($(this).data("tab")).removeClass("_d-none");
+				// $(this).addClass("swiper-slide");
+			} else {
+				$($(this).data("tab")).addClass("_d-none");
+				// $(this).removeClass("swiper-slide");
+			}
+		});
+	}
+	tabFilter();
+	$(".air").each(function () {
+		new AirDatepicker(this, {});
+	});
+	$(".select2-wrap").each(function () {
+		$(this)
+			.find(".select2")
+			.select2({
+				minimumResultsForSearch: -1,
+				dropdownParent: $(this),
+				placeholder: "Select an option",
+			});
+	});
 }
 $(function () {
 	components();
 });
-
-$(function(){})

@@ -39,7 +39,6 @@ function components() {
 				class: `block__h2-line-${i}`,
 			});
 			let flag = 0;
-			console.log($th.html());
 			$th.find("span[line='" + i + "']").each(function () {
 				$line.append($(this).clone());
 				$line.append(" ");
@@ -98,13 +97,24 @@ function components() {
 		$(".photo-slider").each(function () {
 			let $th = $(this);
 			let speed = 2000;
-			const swiper = new Swiper(".photo-slider__swiper", {
+			let swiper = new Swiper($th.find(".photo-slider__swiper")[0], {
 				centeredSlides: true,
 				loop: true,
 				loopedSlides: 7,
+				observerParent: true,
+				observerUpdate: true,
+				observer: true,
 				slidesPerView: "auto",
 				speed: speed,
-				spaceBetween: 215,
+				spaceBetween: 20,
+				breakpoints: {
+					600: {
+						spaceBetween: 100,
+					},
+					1300: {
+						spaceBetween: 215,
+					},
+				},
 				// autoplay: {
 				// 	delay: 0,
 				// },
@@ -114,10 +124,9 @@ function components() {
 			let direction = "";
 			let t = 0;
 			let interval = setInterval(function () {
-				// console.log(play, direction, t);
+				console.log();
 				if (play) {
 					if (t == 0) {
-						console.log(direction);
 						if (direction == "LEFT") {
 							swiper.slidePrev();
 						}
@@ -140,10 +149,9 @@ function components() {
 				}
 			);
 
-			var $cursor = $(this).find(".photo-slider__cursor");
+			let $cursor = $(this).find(".photo-slider__cursor");
 
 			$(this).mousemove(function (e) {
-				console.log($th.offset().top);
 				gsap.to($cursor, 0.23, {
 					left: e.pageX,
 					top: e.pageY - $th.offset().top,
@@ -170,6 +178,39 @@ function components() {
 			});
 		});
 	}
+
+	$(".block__tabs .block__tab").click(function () {
+		$(this)
+			.closest(".block__tabs")
+			.find(".block__tab")
+			.removeClass("_active");
+		$(this).addClass("_active");
+		tabFilter();
+	});
+	function tabFilter() {
+		$(".block__tab").each(function () {
+			if ($(this).hasClass("_active")) {
+				$($(this).data("tab")).removeClass("_d-none");
+				// $(this).addClass("swiper-slide");
+			} else {
+				$($(this).data("tab")).addClass("_d-none");
+				// $(this).removeClass("swiper-slide");
+			}
+		});
+	}
+	tabFilter();
+	$(".air").each(function () {
+		new AirDatepicker(this, {});
+	});
+	$(".select2-wrap").each(function () {
+		$(this)
+			.find(".select2")
+			.select2({
+				minimumResultsForSearch: -1,
+				dropdownParent: $(this),
+				placeholder: "Select an option",
+			});
+	});
 }
 $(function () {
 	components();
