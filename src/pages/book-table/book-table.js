@@ -1,5 +1,36 @@
 function bookTable() {
+	if ($(".book").length) {
+		$(".book").click(function () {
+			barba.go($(".svg-map").data("href") + $(this).data("table"));
+		});
+	}
 	if ($(".book-table__gallery").length) {
+		let booktable = $("#booktable-form").validate({
+			errorPlacement: function (error, element) {},
+			submitHandler: function (form) {
+				$("#booktable-form button[type='submit']").attr(
+					"disabled",
+					"disabled"
+				);
+				$.ajax({
+					url: $(form).attr("action"),
+					data: $(form).serialize(),
+					method: "POST",
+					headers: {
+						"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+							"content"
+						),
+					},
+					context: document.body,
+					success: function () {
+						barba.go($("#booktable-form").data("thanks"));
+					},
+					error: function () {
+						barba.go($("#booktable-form").data("error"));
+					},
+				});
+			},
+		});
 		$(".book-table__gallery").each(function () {
 			let $th = $(this);
 			let speed = 2000;
@@ -76,6 +107,3 @@ function bookTable() {
 		});
 	}
 }
-$(function () {
-	bookTable();
-});

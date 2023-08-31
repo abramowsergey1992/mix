@@ -579,6 +579,10 @@
 
 		}
 
+		input.error+span {
+			color: red !important;
+		}
+
 		input:checked+span {
 			color: #fff;
 		}
@@ -617,11 +621,20 @@
 			color: #fff;
 			font-weight: 400;
 
+			&.error {
+				color: red;
+
+				&::placeholder {
+					color: red
+				}
+			}
+
 			@media(max-width:992px) {
 				font-size: 14px;
 			}
 
 			&::placeholder {
+				font-family: Helvetica Neue;
 				color: #4F4F4F;
 			}
 
@@ -937,4 +950,12 @@
 .select2-container--default .select2-selection--single .select2-selection__arrow {
 	top: 50% !important;
 	transform: translateY(-50%);
+}
+
+.air-datepicker-cell.-selected-.-current- {
+	background: $orange !important;
+}
+
+.select2.error+.select2 .select2-selection__placeholder {
+	color: red !important;
 }

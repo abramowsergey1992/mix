@@ -36,25 +36,25 @@ block content
 						.block
 							.block__head Бронь 
 							.block__body 
-								form.form(action="/" method="post")#booktable-form
+								form.form(action="/" method="post" data-thanks="thanks.html" data-error="error.html")#booktable-form
 									label.form__item
 										span.form__item-title Ваше имя
-										input(type="text",name="name", placeholder="Иванова Ирина Алексеевна")
+										input(data-rule-required type="text",name="name", placeholder="Иванова Ирина Алексеевна")
 									label.form__item
-										span.form__item-title Кол-во гостей
-										input(type="text",name="count", placeholder="0")
+										span.form__item-title Кол-во гостей 
+										input(data-rule-required type="text",name="count", data-length="4", placeholder="0")._mask-count
 									label.form__item
 										span.form__item-title Номер телефона
-										input(type="text",name="phone",placeholder='+7 ___-___-__-__')
+										input(data-rule-required type="text",name="phone",placeholder='+7 ___-___-__-__')._mask-phone
 									label.form__item
 										span.form__item-title Дата
-										input(type="text",name="date",placeholder="00.00.0000")
+										input(data-rule-required type="text",name="date",placeholder="00.00.0000")._mask-date.air
 									label.form__item
 										span.form__item-title Номер стола
-										input(type="text",name="table",placeholder="0")
+										input(data-rule-required type="text",name="table",placeholder="0" data-length="2")._mask-count
 									label.form__item
 										span.form__item-title Стоимость
-										input(type="text",name="price",value="60 000 руб.")
+										input(data-rule-required type="text",name="price",value="60 000 руб.")
 											
 									.form__footer
 										button(type="submit").arrow-link

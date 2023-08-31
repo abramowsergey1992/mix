@@ -15,20 +15,20 @@ block content
 			.block(data-scroll data-scroll-delay="0.6") 
 				.block__head Заполните анкету для получения клубной карты
 				.block__body
-					form.form(action="/" method="post")#card-form
+					form.form(action="/" method="post" data-thanks="thanks.html" data-error="error.html" )#card-form
 						.form__grid 
 							label.form__item
 								span.form__item-title Ф.И.О.
-								input(type="text",name="name", placeholder="Иванова Ирина Алексеевна")
+								input(data-rule-required  type="text",name="name", placeholder="Иванова Ирина Алексеевна")
 							label.form__item
 								span.form__item-title Дата рождения
-								input(type="text",name="db", placeholder="00.00.0000")
+								input(data-rule-required  type="text",name="db", placeholder="00.00.0000").air._mask-date
 							label.form__item
 								span.form__item-title Номер телефона
-								input(type="text",name="phone",placeholder='+7 ___-___-__-__')
+								input(data-rule-required  type="text",name="phone",placeholder='+7 ___-___-__-__')._mask-phone
 							label.form__item
 								span.form__item-title Instagram аккаунт
-								input(type="text",name="insta",placeholder="@instagram")
+								input(data-rule-required  type="text",name="insta",placeholder="@instagram")._mask-inst
 						.form__footer
 							button(type="submit").arrow-link
 								span Отправить

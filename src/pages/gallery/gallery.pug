@@ -1,0 +1,131 @@
+extends ../../layout/layout
+block title
+	title Афиша
+block content
+	main(data-barba="container" data-barba-namespace="gallery")
+		.inner
+			.title-box._br
+				.title-box__bg
+					+picture('gallery','jpg')
+				.title-box__content
+					h1.title-box__title-1 ФОТО
+					.h1.title-box__title-2 Это  
+						i дежавю
+			.block(data-scroll data-scroll-delay="0.6") 
+				.block__head 
+					.block__head-links
+						span._mr-auto.mob-border-title 01.07.2023 — «Eden» (Summer session — Episode 2)
+						.calendar-block(data-href="gallery.html?date=")
+							button.arrow-link
+								span Календарь
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+									<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+									<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+								</svg>
+							input.air-calendar-select()
+				.block__body 
+					.gallery-slider
+						.inner
+							.gallery-slider__swiper.swiper 
+								.swiper-wrapper
+									.swiper-slide
+										.gallery-slider__photo._br 
+											+picture('gal-1','jpg')
+									.swiper-slide
+										.gallery-slider__photo._br 
+											+picture('gal-2','jpg')
+									.swiper-slide
+										.gallery-slider__photo._br 
+											+picture('gal-3','jpg')
+									.swiper-slide
+										.gallery-slider__photo._br 
+											+picture('gal-1','jpg')
+									.swiper-slide
+										.gallery-slider__photo._br 
+											+picture('gal-2','jpg')
+									.swiper-slide
+										.gallery-slider__photo._br 
+											+picture('gal-3','jpg')
+							
+										
+								
+								.gallery-slider__cursor
+									img(src="img/slider-cursor.svg", alt="")
+			.block(data-scroll data-scroll-delay="0.6") 
+				.block__head Прошедшие мероприятия июня
+				.block__body
+					table.lastevent
+						tr 
+							td 23 — 24 JUNE
+							td SUMMER SESSIONSEPISODE 1 — CHINA TOWN
+							td 
+								a.arrow-link(href="gallery.html") 
+									span Смотреть фото
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+										<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+										<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+									</svg>
+						tr 
+							td 19 JUNE
+							td SANDER ZHUKOV
+							td 
+								a.arrow-link(href="gallery.html") 
+									span Смотреть фото
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+										<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+										<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+									</svg>
+						tr 
+							td 17 JUNE
+							td REBRN (ISRAEL) | DIYNAMIC MUSIC
+							td 
+								a.arrow-link(href="gallery.html") 
+									span Смотреть фото
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+										<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+										<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+									</svg>
+						tr 
+							td 16 JUNE
+							td SUNBIOS
+							td 
+								a.arrow-link(href="gallery.html") 
+									span Смотреть фото
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+										<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+										<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+									</svg>
+						tr 
+							td 17 JUNE
+							td REBRN [ISRAEL] | DIYNAMIC MUSIC
+							td 
+								a.arrow-link(href="gallery.html") 
+									span Смотреть фото
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+										<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+										<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+									</svg>
+						tr 
+							td 16 JUNE
+							td SUNBIOS
+							td 
+								a.arrow-link(href="gallery.html") 
+									span Смотреть фото
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+										<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+										<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+									</svg>
+
+			.next-page 
+				.next-page__wrap
+					.next-page__bg
+						+picture('about','jpg')
+					.next-page__content
+						a.next-page__title-1(href="about.html") О КЛУБЕ
+						.h1.next-page__title-2 Когда 
+							i ночи 
+							| мало
+
+					.next-page__number 01
+					a.next-page__next(href="about.html") Далее
+			.popup(data-scroll data-scroll-sticky)

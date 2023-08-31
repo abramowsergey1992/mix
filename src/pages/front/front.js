@@ -14,8 +14,8 @@ function front() {
 	let length = $(".front-card").length;
 	let active = $(".front-card").length;
 	let prev = active - 1;
-	let offsetx = 30;
-	let offsety = 30;
+	let offsetx = 20;
+	let offsety = 25;
 	if (window.innerWidth < 900) {
 		offsetx = 15;
 		offsety = 22;

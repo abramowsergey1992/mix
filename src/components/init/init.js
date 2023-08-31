@@ -1,4 +1,5 @@
 $(function () {
+	components();
 	let scroll = new LocomotiveScroll({
 		el: document.querySelector("[data-scroll-container]"),
 		smooth: true,
@@ -40,10 +41,18 @@ $(function () {
 		}
 	});
 
+	bookTable();
+	afisha();
+	gallery();
+	bookCorp();
+	clubCard();
 	barba.hooks.after(() => {
 		components();
 		bookTable();
 		afisha();
+		gallery();
+		clubCard();
+		bookCorp();
 		scroll.scrollTo("top", 100);
 		setTimeout(function () {
 			scroll.update();

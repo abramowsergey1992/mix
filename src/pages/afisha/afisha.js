@@ -70,6 +70,3 @@ function afisha() {
 		});
 	}
 }
-$(function () {
-	afisha();
-});

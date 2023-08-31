@@ -70,19 +70,19 @@
             <div class="block" data-scroll data-scroll-delay="0.6"> 
               <div class="block__head">Заполните анкету для получения клубной карты</div>
               <div class="block__body">
-                <form class="form" action="/" method="post" id="card-form">
+                <form class="form" action="/" method="post" data-thanks="thanks.html" data-error="error.html" id="card-form">
                   <div class="form__grid"> 
                     <label class="form__item"><span class="form__item-title">Ф.И.О.</span>
-                      <input type="text" name="name" placeholder="Иванова Ирина Алексеевна">
+                      <input data-rule-required type="text" name="name" placeholder="Иванова Ирина Алексеевна">
                     </label>
                     <label class="form__item"><span class="form__item-title">Дата рождения</span>
-                      <input type="text" name="db" placeholder="00.00.0000">
+                      <input class="air _mask-date" data-rule-required type="text" name="db" placeholder="00.00.0000">
                     </label>
                     <label class="form__item"><span class="form__item-title">Номер телефона</span>
-                      <input type="text" name="phone" placeholder="+7 ___-___-__-__">
+                      <input class="_mask-phone" data-rule-required type="text" name="phone" placeholder="+7 ___-___-__-__">
                     </label>
                     <label class="form__item"><span class="form__item-title">Instagram аккаунт</span>
-                      <input type="text" name="insta" placeholder="@instagram">
+                      <input class="_mask-inst" data-rule-required type="text" name="insta" placeholder="@instagram">
                     </label>
                   </div>
                   <div class="form__footer">
@@ -117,10 +117,35 @@
           </div>
         </footer>
       </div>
+    </div>
+    <div class="popup-gallery">
+      <div class="inner"> 
+        <div class="block is-inview">
+          <div class="block__head">
+            <button class="arrow-link _ml-auto"><span>Закрыть</span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+</svg>
+            </button>
+          </div>
+          <div class="block__body">
+            <div class="popup-gallery__slider"> 
+              <div class="inner"> 
+                <div class="popup-gallery__swiper"> 
+                  <div class="swiper-wrapper"></div>
+                  <div class="popup-gallery__cursor"><img src="img/slider-cursor.svg" alt=""></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div><script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js "></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="js/vendor.js"></script>

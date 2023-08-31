@@ -208,10 +208,37 @@ function components() {
 			.select2({
 				minimumResultsForSearch: -1,
 				dropdownParent: $(this),
-				placeholder: "Select an option",
+				placeholder: $(this).find(".select2").attr("placeholder"),
 			});
 	});
+
+	$("._mask-phone").each(function () {
+		$(this).inputmask("+7 999-999-99-99", {
+			skipOptionalPartCharacter: " ",
+		});
+	});
+	if ($("._mask-count").length) {
+		var mc = new Cleave("._mask-count", {
+			numeral: true,
+			delimiter: " ",
+			numeralThousandsGroupStyle: "thousand",
+		});
+	}
+	if ($("._mask-price").length) {
+		var mp = new Cleave("._mask-price", {
+			numeral: true,
+			delimiter: " ",
+			prefix: " руб",
+			tailPrefix: true,
+			noImmediatePrefix: true,
+			numeralThousandsGroupStyle: "thousand",
+		});
+	}
+	if ($("._mask-date").length) {
+		var md = new Cleave("._mask-date", {
+			date: true,
+			delimiter: ".",
+			datePattern: ["d", "m", "Y"],
+		});
+	}
 }
-$(function () {
-	components();
-});

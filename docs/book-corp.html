@@ -68,44 +68,43 @@
                 <div class="block">
                   <div class="block__head">Бронь площадки </div>
                   <div class="block__body"> 
-                    <form class="form" action="/" method="post" id="booktable-form">
+                    <form class="form" action="/" method="post" data-thanks="thanks.html" data-error="error.html" id="bookcorp-form">
                       <div class="form__grid"> 
                         <label class="form__item"><span class="form__item-title">Ваше имя</span>
-                          <input type="text" name="name" placeholder="Иванова Ирина Алексеевна">
+                          <input data-rule-required type="text" name="name" placeholder="Иванова Ирина Алексеевна">
                         </label>
                         <label class="form__item"><span class="form__item-title">E-mail</span>
-                          <input type="text" name="mail" placeholder="ivanov@mail.ru">
+                          <input data-rule-required data-rule-email type="text" name="mail" placeholder="ivanov@mail.ru">
                         </label>
                         <label class="form__item"><span class="form__item-title">Номер телефона</span>
-                          <input type="text" name="phone" placeholder="+7 ___-___-__-__">
+                          <input class="_mask-phone" data-rule-required type="text" name="phone" placeholder="+7 ___-___-__-__">
                         </label>
                         <label class="form__item"><span class="form__item-title">Кол-во гостей</span>
-                          <input type="text" name="count" placeholder="1 500">
+                          <input class="_mask-count" data-rule-required type="text" name="count" placeholder="1 500" data-length="4">
                         </label>
-                        <label class="form__item"><span class="form__item-title">Бюджет 
-                            <spanspan class="_only-desc">мероприятия</spanspan></span>
-                          <input type="text" name="price" placeholder="200 000">
+                        <label class="form__item"><span class="form__item-title">Бюджет <span class="_only-desc">мероприятия</span></span>
+                          <input class="_mask-price" data-rule-required type="text" name="price" placeholder="200 000">
                         </label>
                         <label class="form__item"><span class="form__item-title">Дата</span>
-                          <input class="air" type="text" name="date" placeholder="00.00.0000">
+                          <input class="air _mask-date" data-rule-required type="text" name="date" placeholder="00.00.0000">
                         </label>
                         <div class="form__item"><span class="form__item-title">Банкетная служба</span>
                           <div class="form__item-radios"> 
                             <label class="form__item-radio">
-                              <input type="radio" name="service" value="Фуршет"><span>Фуршет</span>
+                              <input data-rule-required type="radio" name="service" value="Фуршет"><span>Фуршет</span>
                             </label>
                             <label class="form__item-radio">
-                              <input type="radio" name="service" value="Кофебрейк"><span>Кофебрейк</span>
+                              <input data-rule-required type="radio" name="service" value="Кофебрейк"><span>Кофебрейк</span>
                             </label>
                             <label class="form__item-radio">
-                              <input type="radio" name="service" value="Банкет"><span>Банкет</span>
+                              <input data-rule-required type="radio" name="service" value="Банкет"><span>Банкет</span>
                             </label>
                           </div>
                         </div>
                         <label class="form__item"><span class="form__item-title">Формат <span class="_only-desc">мероприятия</span></span>
                           <div class="select2-wrap">
-                            <select class="select2" name="format">
-                              <option></option>
+                            <select class="select2" name="format" data-rule-required placeholder="Выберите вариант">
+                              <option> </option>
                               <option value="Новый год"> Новый год</option>
                               <option value="Свадьба"> Свадьба</option>
                               <option value="Корпоратив"> Корпоратив</option>
@@ -147,10 +146,35 @@
           </div>
         </footer>
       </div>
+    </div>
+    <div class="popup-gallery">
+      <div class="inner"> 
+        <div class="block is-inview">
+          <div class="block__head">
+            <button class="arrow-link _ml-auto"><span>Закрыть</span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+<path d="M12.7305 0.710938L18.3805 6.36094L12.7305 12.0209" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M17.07 6.35938H0" stroke="" stroke-width="2" stroke-miterlimit="10"/>
+</svg>
+            </button>
+          </div>
+          <div class="block__body">
+            <div class="popup-gallery__slider"> 
+              <div class="inner"> 
+                <div class="popup-gallery__swiper"> 
+                  <div class="swiper-wrapper"></div>
+                  <div class="popup-gallery__cursor"><img src="img/slider-cursor.svg" alt=""></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div><script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js "></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="js/vendor.js"></script>

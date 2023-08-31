@@ -32,6 +32,9 @@ body {
 #pagescroll {
 	padding-top: 172px;
 	// padding-bottom: 60px;
+	padding-top: 172px;
+	display: flex;
+	flex-direction: column;
 
 	@media(max-width:1024px) {
 		padding-top: 102px;
