@@ -11,7 +11,7 @@ body:has(#popup-template) {
 	width: 100%;
 	background: $dark;
 	padding: 50px 0;
-	z-index: 111;
+	z-index: 1111;
 
 	@media(max-width:1024px) {
 		padding: 15px 0;
@@ -144,6 +144,11 @@ body:has(#popup-template) {
 		padding-top: 172px;
 		position: relative;
 		padding-bottom: 62px;
+
+		@media(max-width:992px) {
+			padding-bottom: 50px;
+			padding-top: 121px;
+		}
 	}
 
 	&__lang {
@@ -158,6 +163,17 @@ body:has(#popup-template) {
 		text-decoration: none;
 		bottom: 130px;
 		bottom: 141px;
+
+
+		@media(max-width:992px) {
+			position: relative;
+			right: 0;
+			bottom: 0;
+			line-height: 40px;
+			width: 100%;
+			text-align: center;
+			margin-top: 13px;
+		}
 
 		&:hover {
 			color: $orange;
@@ -189,10 +205,18 @@ body:has(#popup-template) {
 		line-height: 24px;
 		padding-top: 37px;
 		padding-bottom: 37px;
+
+		@media(max-width:992px) {
+			padding-top: 5px;
+			padding-bottom: 10px;
+		}
 	}
 
 	&__item-card.header-menu__item {
-		display: none;
+		@media(min-width:993px) {
+			display: none;
+		}
+
 	}
 
 	&__list {
@@ -257,6 +281,11 @@ body:has(#popup-template) {
 				transition: color 0.35s;
 				transform: translateY(20%);
 
+				@media(max-width:992px) {
+					font-size: calc(((100svh - 250px)/7)*0.5);
+					padding-left: 18px;
+				}
+
 				&:hover {
 					color: $orange;
 				}
@@ -274,6 +303,11 @@ body:has(#popup-template) {
 					transform: translateY(-80%);
 					text-transform: uppercase;
 					content: "0" counter(counter1);
+
+					@media(max-width:992px) {
+						top: 5px;
+						font-size: 12px;
+					}
 				}
 			}
 		}

@@ -17,8 +17,8 @@ function front() {
 	let offsetx = 20;
 	let offsety = 25;
 	if (window.innerWidth < 900) {
-		offsetx = 15;
-		offsety = 22;
+		offsetx = 10;
+		offsety = 10;
 	}
 	let speed = 0.3;
 	if (window.innerWidth < 900) {

@@ -1,4 +1,7 @@
 function popup() {
+	$(".popup-gallery__close").click(function () {
+		$(".popup-gallery").fadeOut();
+	});
 	$(".popup-gallery__slider").each(function () {
 		let $th = $(this);
 		let speed = 2000;
@@ -8,6 +11,7 @@ function popup() {
 			observer: true,
 			loop: true,
 			slidesPerView: 1,
+			loopedSlides: 7,
 			speed: speed,
 			spaceBetween: 20,
 			breakpoints: {

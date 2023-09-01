@@ -1,8 +1,6 @@
 .front-card {
 	position: absolute !important;
-	overflow: visible !important;
 
-	backface-visibility: visible !important;
 	border-radius: 35px 35px 0px 0px;
 	transform: none !important;
 	top: 0;
@@ -11,6 +9,7 @@
 	height: 100%;
 	width: 100%;
 	flex-direction: column;
+	overflow: hidden;
 	align-items: center;
 	justify-content: flex-end;
 	padding-bottom: 130px;
@@ -47,6 +46,7 @@
 		line-height: 250%;
 		letter-spacing: 11.2px;
 		margin-bottom: 5px;
+		text-transform: uppercase;
 
 		@media(max-width:1024px) {
 			font-size: 12px;
@@ -130,10 +130,15 @@
 
 }
 
-body:has(.front) #pagescroll {
-	overflow: visible !important;
-	position: relative;
-	z-index: 11111;
+body:has(.front) {
+	.header {
+		background: transparent;
+	}
+
+	#pagescroll {
+		overflow: visible !important;
+		position: relative;
+	}
 }
 
 .front {
@@ -143,8 +148,8 @@ body:has(.front) #pagescroll {
 	position: relative;
 
 	@media(max-width:1024px) {
-		--slide-offset: 18px;
-		--slide-xoffset: 15px;
+		--slide-offset: 10px;
+		--slide-xoffset: 10px;
 		padding-top: 67px;
 	}
 

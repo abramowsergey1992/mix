@@ -14,8 +14,26 @@ function gallery() {
 				},
 			});
 		});
+		$(document).on(
+			"click",
+			".gallery-slider__swiper .swiper-slide",
+			function () {
+				console.log("click");
+				$(".popup-gallery").fadeIn();
+				let slide = $(this).attr("slide");
+				let swiper = $(".popup-gallery__swiper")[0].swiper;
+				swiper.slideTo(slide);
+			}
+		);
+
 		$(".gallery-slider").each(function () {
 			let $th = $(this);
+			let i = 0;
+			$th.find(".swiper-slide").each(function () {
+				$(this).attr("slide", i);
+				i++;
+			});
+
 			$(".popup-gallery__swiper .swiper-wrapper").html(
 				$th.find(".swiper-wrapper").html()
 				// $('.popup-gallery')[0].swiper.update()
@@ -29,6 +47,9 @@ function gallery() {
 				loop: true,
 				slidesPerView: "auto",
 				speed: speed,
+				preventClicks: false,
+				preventClicksPropagation: false,
+				preventInteractionOnTransition: false,
 				spaceBetween: 20,
 				breakpoints: {
 					600: {
