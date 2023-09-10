@@ -2,16 +2,16 @@ extends ../../layout/layout
 block title
 	title Афиша
 block content
-	main(data-barba="container" data-barba-namespace="gallery")
+	main(data-barba="container" data-barba-namespace="chapter")
 		.inner
 			.title-box._br
 				.title-box__bg
-					+picture('gallery','jpg')
+					+picture('front-6','jpg')
 				.title-box__content
 					h1.title-box__title-1 ФОТО
 					.h1.title-box__title-2 Это  
 						i дежавю
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				.block__head 
 					.block__head-links
 						span._mr-auto.mob-border-title 01.07.2023 — «Eden» (Summer session — Episode 2)
@@ -51,7 +51,7 @@ block content
 								
 						.gallery-slider__cursor
 							img(src="img/slider-cursor.svg", alt="")
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				.block__head Прошедшие мероприятия июня
 				.block__body
 					table.lastevent
@@ -121,11 +121,11 @@ block content
 					.next-page__bg
 						+picture('about','jpg')
 					.next-page__content
-						a.next-page__title-1(href="about.html") О КЛУБЕ
+						a.next-page__title-1(data-barba-transition="chapter" href="about.html") О КЛУБЕ
 						.h1.next-page__title-2 Когда 
 							i ночи 
 							| мало
 
 					.next-page__number 01
-					a.next-page__next(href="about.html") Далее
-			.popup(data-scroll data-scroll-sticky)
+					a.next-page__next(data-barba-transition="chapter" href="about.html") Далее
+			.popup(data-aos data-aos-sticky)

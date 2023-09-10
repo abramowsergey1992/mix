@@ -2,17 +2,17 @@ extends ../../layout/layout
 block title
 	title О клубе
 block content
-	main(data-barba="container" data-barba-namespace="about")
+	main(data-barba="container" data-barba-namespace="chapter")
 		.inner
 			.title-box._br
 				.title-box__bg
-					+picture('about','jpg')
+					+picture('f-c-1','jpg')
 				.title-box__content
 					h1.title-box__title-1 О КЛУБЕ
 					.h1.title-box__title-2 Когда 
 						i ночи 
 						| мало
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				.block__head-row
 					.block__head._only-desc._mini Кто мы
 					.block__head Грандиозные афтепати Москвы
@@ -23,7 +23,7 @@ block content
 							| нового. 
 						| Ей мало ночи.
 					p Мы жадно ищем места с вдохновляющими  людьми и музыкой. Этот Микс собирается  только к утру. Атмосфера, звук, бар, красивые  тела и лица — здесь всё готово к выходу  за пределы. Начинается афтэпати.
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				.block__head Интерьер
 				.block__body
 					h2 Интерьер клуба смиксован так, 
@@ -48,7 +48,7 @@ block content
 							.photo-slider__desc Приватная комната
 				.photo-slider__cursor
 					img(src="img/slider-cursor.svg", alt="")
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				.block__head Правила клуба
 				.block__body
 					h2 Стиль и уровень нашего заведения подразумевают определенный дресскод: 
@@ -62,11 +62,10 @@ block content
 					.next-page__bg
 						+picture('afisha','jpg')
 					.next-page__content
-						a.next-page__title-1(href="afisha.html") Афиша
+						a.next-page__title-1(data-barba-transition="chapter" href="afisha.html") Афиша
 						.h1.next-page__title-2 Твоя 
 							i ночь 
 							| в миксе
 
 					.next-page__number 02
-					a.next-page__next(href="afisha.html") Далее
-
+					a.next-page__next(data-barba-transition="chapter" href="afisha.html") Далее

@@ -2,17 +2,17 @@ extends ../../layout/layout
 block title
 	title Клубная карта
 block content
-	main(data-barba="container" data-barba-namespace="clubcard")
+	main(data-barba="container" data-barba-namespace="chapter")
 		.inner
 			.title-box._br
 				.title-box__bg
-					+picture('cc','jpg')
+					+picture('front-7','jpg')
 				.title-box__content
 					h1.title-box__title-1 КЛУБНАЯ КАРТЫ
 					.h1.title-box__title-2  
 						i Women's 
 						| club cards 
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				.block__head Заполните анкету для получения клубной карты
 				.block__body
 					form.form(action="/" method="post" data-thanks="thanks.html" data-error="error.html" )#card-form
@@ -41,11 +41,11 @@ block content
 					.next-page__bg
 						+picture('afisha','jpg')
 					.next-page__content
-						a.next-page__title-1(href="afisha.html") Афиша
+						a.next-page__title-1(data-barba-transition="chapter" href="afisha.html") Афиша
 						.h1.next-page__title-2 Твоя 
 							i ночь 
 							| в миксе
 
 					.next-page__number 02
-					a.next-page__next(href="afisha.html") Далее
+					a.next-page__next(data-barba-transition="chapter" href="afisha.html") Далее
 

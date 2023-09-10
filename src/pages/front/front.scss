@@ -146,6 +146,7 @@ body:has(.front) {
 	--slide-xoffset: 25px;
 	padding-top: 150px;
 	position: relative;
+	overflow: hidden;
 
 	@media(max-width:1024px) {
 		--slide-offset: 10px;
@@ -342,41 +343,41 @@ body:has(.front) {
 	z-index: 110;
 }
 
-#front-card-1 {
-	width: calc(100% - var(--slide-xoffset)* 6 * 2);
-	margin-left: calc(var(--slide-xoffset)* 6);
-	top: calc(var(--slide-offset)* -6);
-}
+// #front-card-1 {
+// 	width: calc(100% - var(--slide-xoffset)* 6 * 2);
+// 	margin-left: calc(var(--slide-xoffset)* 6);
+// 	top: calc(var(--slide-offset)* -6);
+// }
 
-#front-card-2 {
-	width: calc(100% - var(--slide-xoffset)* 2 * 5);
-	margin-left: calc(var(--slide-xoffset)* 5);
-	top: calc(var(--slide-offset)* -5);
-}
+// #front-card-2 {
+// 	width: calc(100% - var(--slide-xoffset)* 2 * 5);
+// 	margin-left: calc(var(--slide-xoffset)* 5);
+// 	top: calc(var(--slide-offset)* -5);
+// }
 
-#front-card-3 {
-	width: calc(100% - var(--slide-xoffset)* 4 * 2);
-	margin-left: calc(var(--slide-xoffset)* 4);
-	top: calc(var(--slide-offset)* -4);
-}
+// #front-card-3 {
+// 	width: calc(100% - var(--slide-xoffset)* 4 * 2);
+// 	margin-left: calc(var(--slide-xoffset)* 4);
+// 	top: calc(var(--slide-offset)* -4);
+// }
 
-#front-card-4 {
-	width: calc(100% - var(--slide-xoffset)* 3 * 2);
-	margin-left: calc(var(--slide-xoffset)* 3);
-	top: calc(var(--slide-offset)* -3);
-}
+// #front-card-4 {
+// 	width: calc(100% - var(--slide-xoffset)* 3 * 2);
+// 	margin-left: calc(var(--slide-xoffset)* 3);
+// 	top: calc(var(--slide-offset)* -3);
+// }
 
-#front-card-5 {
-	width: calc(100% - var(--slide-xoffset)* 2 * 2);
-	margin-left: calc(var(--slide-xoffset)* 2);
-	top: calc(var(--slide-offset)* -2);
-}
+// #front-card-5 {
+// 	width: calc(100% - var(--slide-xoffset)* 2 * 2);
+// 	margin-left: calc(var(--slide-xoffset)* 2);
+// 	top: calc(var(--slide-offset)* -2);
+// }
 
-#front-card-6 {
-	width: calc(100% - var(--slide-xoffset)* 2 * 1);
-	margin-left: calc(var(--slide-xoffset)* 1);
-	top: calc(var(--slide-offset)* -1);
-}
+// #front-card-6 {
+// 	width: calc(100% - var(--slide-xoffset)* 2 * 1);
+// 	margin-left: calc(var(--slide-xoffset)* 1);
+// 	top: calc(var(--slide-offset)* -1);
+// }
 
 
 // .front__swiper[data-slide="3"] {

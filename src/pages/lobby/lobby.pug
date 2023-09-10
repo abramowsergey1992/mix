@@ -2,7 +2,7 @@ extends ../../layout/layout
 block title
 	title Резерв
 block content
-	main(data-barba="container" data-barba-namespace="food")
+	main(data-barba="container" data-barba-namespace="chapter")
 		.inner
 			.title-box._br
 				.title-box__bg
@@ -12,7 +12,7 @@ block content
 					.h1.title-box__title-2 Открой 
 						i свой 
 						| микс 
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				.block__head 
 					.block__head-links
 						.block__tabs._mr-auto
@@ -303,7 +303,7 @@ block content
 								.svg-map__legend-marker(style="background:#FF602C")
 								.svg-map__legend-text Зарезервировано
 
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				.block__head Интерьер танцпола
 				.block__body 
 					.photo-slider
@@ -345,11 +345,11 @@ block content
 					.next-page__bg
 						+picture('corporate','jpg')
 					.next-page__content
-						a.next-page__title-1(href="corporate.html") КОРПОРАТИВЫ
+						a.next-page__title-1(data-barba-transition="chapter" href="corporate.html") КОРПОРАТИВЫ
 						.h1.next-page__title-2 Микс 
 							i event 
 							|  place  
 
 					.next-page__number 05
-					a.next-page__next(href="corporate.html") Далее
+					a.next-page__next(data-barba-transition="chapter" href="corporate.html") Далее
 

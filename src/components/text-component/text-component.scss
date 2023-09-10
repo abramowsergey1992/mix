@@ -448,6 +448,7 @@
 		left: -111px;
 		top: 50%;
 		transform: translateY(-50%);
+		transition: opacity 0.2s;
 
 		@media(max-width:1300px) {
 			display: none;
@@ -461,6 +462,7 @@
 		text-decoration: none;
 		top: 50%;
 		transform: translateY(-50%);
+		transition: opacity 0.2s;
 
 		@media(max-width:1300px) {
 			display: none;

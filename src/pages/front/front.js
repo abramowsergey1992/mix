@@ -20,7 +20,7 @@ function front() {
 		offsetx = 10;
 		offsety = 10;
 	}
-	let speed = 0.3;
+	let speed = 0.1;
 	if (window.innerWidth < 900) {
 		speed = 0.2;
 	}
@@ -45,7 +45,47 @@ function front() {
 		arr = arr2;
 		console.log(arr);
 		arr.forEach((element, i) => {
-			let pos = length - 1 - i;
+			if (i == 0) {
+				console.log("#front-card-" + arr[0]);
+				gsap.to("#front-card-" + arr[0], {
+					top: window.innerHeight - 300,
+					zIndex: 1000,
+					width: $(".front__swiper").width(),
+					marginLeft: 0,
+					duration: speed,
+				});
+			} else {
+				let pos = length - 1 - i;
+				gsap.to("#front-card-" + element, {
+					top: offsety * pos * -1,
+					zIndex: (i + 1) * 100,
+					width: $(".front__swiper").width() - offsetx * 2 * pos,
+					marginLeft: offsetx * pos,
+					duration: speed,
+				});
+			}
+		});
+	}
+	arr.forEach((element, i) => {
+		let pos = length - 1 - i;
+		if (i == length - 1) {
+			gsap.to("#front-card-" + arr[length - 1], {
+				top: 0,
+				zIndex: 1000,
+				width: $(".front__swiper").width(),
+				marginLeft: 0,
+				duration: speed,
+			});
+		} else if (i == 0) {
+			console.log("#front-card-" + arr[0]);
+			gsap.to("#front-card-" + arr[0], {
+				top: window.innerHeight - 300,
+				zIndex: 0,
+				width: $(".front__swiper").width(),
+				marginLeft: 0,
+				duration: speed,
+			});
+		} else {
 			gsap.to("#front-card-" + element, {
 				top: offsety * pos * -1,
 				zIndex: (i + 1) * 100,
@@ -53,26 +93,8 @@ function front() {
 				marginLeft: offsetx * pos,
 				duration: speed,
 			});
-		});
-		gsap.to("#front-card-" + arr[0], {
-			top: window.innerHeight - 300,
-			zIndex: 1000,
-			width: $(".front__swiper").width() * 1.1,
-			marginLeft: 0,
-			duration: speed,
-			onComplete: function () {
-				gsap.to("#front-card-" + arr[0], {
-					top: offsety * -1 * (length - 1),
-					zIndex: 80,
-					width:
-						$(".front__swiper").width() -
-						offsetx * 2 * (length - 1),
-					marginLeft: offsetx * (length - 1),
-					duration: speed / 2,
-				});
-			},
-		});
-	}
+		}
+	});
 	function frontUp() {
 		animate = true;
 		setTimeout(function () {
@@ -89,32 +111,32 @@ function front() {
 		console.log(arr);
 		arr.forEach((element, i) => {
 			let pos = length - 1 - i;
-			gsap.to("#front-card-" + element, {
-				top: offsety * pos * -1,
-				zIndex: (i + 1) * 100,
-				width: $(".front__swiper").width() - offsetx * 2 * pos,
-				marginLeft: offsetx * pos,
-				duration: speed,
-			});
-		});
-		gsap.to("#front-card-" + arr[length - 1], {
-			top: window.innerWidth > 900 ? -250 : -150,
-			zIndex: 0,
-			width:
-				window.innerWidth > 900
-					? $(".front__swiper").width() - 200
-					: $(".front__swiper").width(),
-			marginLeft: window.innerWidth > 900 ? 200 : 0,
-			duration: speed,
-			onComplete: function () {
+			if (i == length - 1) {
 				gsap.to("#front-card-" + arr[length - 1], {
 					top: 0,
 					zIndex: 1000,
 					width: $(".front__swiper").width(),
 					marginLeft: 0,
-					duration: speed / 2,
+					duration: speed,
 				});
-			},
+			} else if (i == 0) {
+				console.log("#front-card-" + arr[0]);
+				gsap.to("#front-card-" + arr[0], {
+					top: window.innerHeight - 300,
+					zIndex: 0,
+					width: $(".front__swiper").width(),
+					marginLeft: 0,
+					duration: speed,
+				});
+			} else {
+				gsap.to("#front-card-" + element, {
+					top: offsety * pos * -1,
+					zIndex: (i + 1) * 100,
+					width: $(".front__swiper").width() - offsetx * 2 * pos,
+					marginLeft: offsetx * pos,
+					duration: speed,
+				});
+			}
 		});
 	}
 	$(".front__swiper").on("mousewheel", function (e) {

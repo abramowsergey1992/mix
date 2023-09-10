@@ -2,17 +2,17 @@ extends ../../layout/layout
 block title
 	title КОРПОРАТИВЫ
 block content
-	main(data-barba="container" data-barba-namespace="food")
+	main(data-barba="container" data-barba-namespace="chapter")
 		.inner
 			.title-box._br
 				.title-box__bg
-					+picture('corporate','jpg')
+					+picture('front-5','jpg')
 				.title-box__content
 					h1.title-box__title-1 КОРПОРАТИВЫ
 					.h1.title-box__title-2 Микс 
 						i event   
 						| place 
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				
 				.block__head 
 					.block__head-links
@@ -47,7 +47,7 @@ block content
 							.photo-slider__desc Приватная комната
 				.photo-slider__cursor
 					img(src="img/slider-cursor.svg", alt="")
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				
 				.block__head 
 					.block__head-links
@@ -123,12 +123,12 @@ block content
 							p Частные 
 								br
 								| праздники
-			.two-photo( data-scroll)
+			.two-photo( data-aos)
 				.two-photo__big
 					+picture('c-1','jpg')._br
 				.two-photo__small
 					+picture('c-1','jpg')._br
-			.block(data-scroll) 
+			.block(data-aos) 
 				
 				.block__head 
 					.block__head-links
@@ -193,7 +193,7 @@ block content
 							.photo-slider__desc Приватная комната
 				.photo-slider__cursor
 					img(src="img/slider-cursor.svg", alt="")
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				
 				.block__head 
 					.block__head-links
@@ -213,12 +213,12 @@ block content
 					p Мы сотрудничаем с сервисными компаниями федерального и международного уровня.
 						br 
 						| Это меню любой сложности и топовыйобслуживающий персонал.
-			.two-photo(data-scroll)
+			.two-photo(data-aos)
 				.two-photo__small
 					+picture('c-1','jpg')._br
 				.two-photo__big
 					+picture('c-1','jpg')._br
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				.block__head 
 					.block__head-links
 						span._mr-auto.mob-border-title  Дополнительные параметры  площадки
@@ -272,10 +272,10 @@ block content
 					.next-page__bg
 						+picture('gallery','jpg')
 					.next-page__content
-						a.next-page__title-1(href="gallery.html") ФОТО
+						a.next-page__title-1(data-barba-transition="chapter" href="gallery.html") ФОТО
 						.h1.next-page__title-2 Это  
 							i дежавю 
 
 					.next-page__number 05
-					a.next-page__next(href="gallery.html") Далее
+					a.next-page__next(data-barba-transition="chapter" href="gallery.html") Далее
 

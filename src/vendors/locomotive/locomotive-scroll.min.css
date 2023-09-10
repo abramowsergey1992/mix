@@ -11,15 +11,15 @@ html.has-scroll-dragging {
 .has-scroll-smooth body {
 	overflow: hidden;
 }
-.has-scroll-smooth [data-scroll-container] {
+.has-scroll-smooth [data-aos-container] {
 	min-height: 100vh;
 }
-[data-scroll-direction="horizontal"] [data-scroll-container] {
+[data-aos-direction="horizontal"] [data-aos-container] {
 	display: inline-block;
 	height: 100vh;
 	white-space: nowrap;
 }
-[data-scroll-direction="horizontal"] [data-scroll-section] {
+[data-aos-direction="horizontal"] [data-aos-section] {
 	display: inline-block;
 	height: 100%;
 	vertical-align: top;
@@ -43,14 +43,14 @@ html.has-scroll-dragging {
 .has-scroll-scrolling .c-scrollbar {
 	opacity: 1;
 }
-[data-scroll-direction="horizontal"] .c-scrollbar {
+[data-aos-direction="horizontal"] .c-scrollbar {
 	bottom: 0;
 	height: 10px;
 	top: auto;
 	transform: scaleY(1);
 	width: 100%;
 }
-[data-scroll-direction="horizontal"] .c-scrollbar:hover {
+[data-aos-direction="horizontal"] .c-scrollbar:hover {
 	transform: scaleY(1.3);
 }
 .c-scrollbar_thumb {
@@ -69,7 +69,7 @@ html.has-scroll-dragging {
 	cursor: -webkit-grabbing;
 	cursor: grabbing;
 }
-[data-scroll-direction="horizontal"] .c-scrollbar_thumb {
+[data-aos-direction="horizontal"] .c-scrollbar_thumb {
 	bottom: 0;
 	right: auto;
 }

@@ -2,17 +2,17 @@ extends ../../layout/layout
 block title
 	title ЕДА & БАР
 block content
-	main(data-barba="container" data-barba-namespace="food")
+	main(data-barba="container" data-barba-namespace="chapter")
 		.inner
 			.title-box._br
 				.title-box__bg
-					+picture('afisha-detail','jpg')
+					+picture('front-3','jpg')
 				.title-box__content
 					h1.title-box__title-1 ЕДА & БАР
 					.h1.title-box__title-2 Твоя 
 						i ночь 
 						| в миксе 
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				.block__head-row._kitchen-row
 					.block__head 
 						.block__tabs 
@@ -173,11 +173,11 @@ block content
 					.next-page__bg
 						+picture('reserv','jpg')
 					.next-page__content
-						a.next-page__title-1(href="reserv.html") Резерв
+						a.next-page__title-1(data-barba-transition="chapter" href="reserv.html") Резерв
 						.h1.next-page__title-2 Открой 
 							i свой 
 							| микс  
 
 					.next-page__number 04
-					a.next-page__next(href="reserv.html") Далее
+					a.next-page__next(data-barba-transition="chapter" href="reserv.html") Далее
 

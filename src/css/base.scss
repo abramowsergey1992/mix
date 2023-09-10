@@ -15,6 +15,22 @@ body {
 
 }
 
+.aos-init {
+	pointer-events: initial !important;
+}
+
+html._no-scroll {
+	body {
+		overflow: hidden;
+	}
+
+	#pagescroll {
+		transform: none !important;
+	}
+
+	overflow: hidden;
+}
+
 .mob-border-title {
 	@media(max-width:992px) {
 		width: 100%;

@@ -2,7 +2,7 @@ extends ../../layout/layout
 block title
 	title Афиша детальная
 block content
-	main(data-barba="container" data-barba-namespace="about")
+	main(data-barba="container" data-barba-namespace="chapter")
 		.inner
 			.title-box._br
 				.title-box__bg
@@ -12,7 +12,7 @@ block content
 					.h1.title-box__title-2 Твоя 
 						i ночь 
 						| в миксе 
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				
 				.block__head 
 					.block__head-links
@@ -48,7 +48,7 @@ block content
 									| FC | DC | 21+
 			.programs-grid
 
-				.block(data-scroll data-scroll-delay="0.6") 
+				.block(data-aos data-aos-delay="0.6") 
 					.block__head Line-up: 14 июля
 					.block__body
 						table.program
@@ -70,7 +70,7 @@ block content
 							tr 
 								td 10:00 — 12:00
 								td Gorin
-				.block(data-scroll data-scroll-delay="0.6") 
+				.block(data-aos data-aos-delay="0.6") 
 					.block__head Line-up: 15 июля
 					.block__body
 						table.program
@@ -98,11 +98,11 @@ block content
 					.next-page__bg
 						+picture('afisha-detail','jpg')
 					.next-page__content
-						a.next-page__title-1(href="afisha-detail.html") Афиша
+						a.next-page__title-1(data-barba-transition="chapter" href="kitchen.html") Афиша
 						.h1.next-page__title-2 Вкусы 
 							i ночной 
 							| Москвы
 
 					.next-page__number 03
-					a.next-page__next(href="afisha-detail.html") Далее
+					a.next-page__next(data-barba-transition="chapter" href="kitchen.html") Далее
 

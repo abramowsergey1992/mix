@@ -6,13 +6,13 @@ block content
 		.inner
 			.title-box._br
 				.title-box__bg
-					+picture('afisha','jpg')
+					+picture('front-2','jpg')
 				.title-box__content
 					h1.title-box__title-1 АФИША
 					.h1.title-box__title-2 Твоя 
 						i ночь 
 						| в миксе 
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				.block__head-row
 					.block__head Афиша
 				.block__body 
@@ -50,7 +50,7 @@ block content
 											a(href="afisha-detail.html") Забронировать стол 
 								.afisha-slider__cursor
 									img(src="img/slider-cursor.svg", alt="")
-			.block(data-scroll data-scroll-delay="0.6") 
+			.block(data-aos data-aos-delay="0.6") 
 				.block__head Прошедшие мероприятия
 				.block__body
 					table.program
@@ -78,11 +78,11 @@ block content
 					.next-page__bg
 						+picture('afisha-detail','jpg')
 					.next-page__content
-						a.next-page__title-1(href="afisha-detail.html") Афиша
+						a.next-page__title-1( href="afisha-detail.html" data-barba-transition="chapter") Афиша
 						.h1.next-page__title-2 Вкусы 
 							i ночной 
 							| Москвы
 
 					.next-page__number 03
-					a.next-page__next(href="afisha-detail.html") Далее
+					a.next-page__next( href="afisha-detail.html" data-barba-transition="chapter") Далее
 
