@@ -222,6 +222,3 @@ function front() {
 	// }
 	// console.log(arr);
 }
-$(function () {
-	front();
-});

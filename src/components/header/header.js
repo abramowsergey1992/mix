@@ -5,6 +5,9 @@ function header() {
 	$(".header-menu__item a").click(function () {
 		$(".header").removeClass("_open-menu");
 	});
+	$(".header__contact").click(function () {
+		$(".header").removeClass("_open-menu");
+	});
 }
 $(function () {
 	header();

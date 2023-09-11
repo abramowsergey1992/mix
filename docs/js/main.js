@@ -73,35 +73,6 @@ function afisha() {
 }
 
 $(function(){})
-function bookCorp() {
-	let booktable = $("#bookcorp-form").validate({
-		errorPlacement: function (error, element) {},
-		submitHandler: function (form) {
-			$("#bookcorp-form button[type='submit']").attr(
-				"disabled",
-				"disabled"
-			);
-			$.ajax({
-				url: $(form).attr("action"),
-				data: $(form).serialize(),
-				method: "POST",
-				headers: {
-					"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-						"content"
-					),
-				},
-				context: document.body,
-				success: function () {
-					barba.go($("#bookcorp-form").data("thanks"));
-				},
-				error: function () {
-					barba.go($("#bookcorp-form").data("error"));
-				},
-			});
-		},
-	});
-}
-
 function bookTable() {
 	if ($(".book").length) {
 		$(".book").click(function () {
@@ -210,6 +181,35 @@ function bookTable() {
 			});
 		});
 	}
+}
+
+function bookCorp() {
+	let booktable = $("#bookcorp-form").validate({
+		errorPlacement: function (error, element) {},
+		submitHandler: function (form) {
+			$("#bookcorp-form button[type='submit']").attr(
+				"disabled",
+				"disabled"
+			);
+			$.ajax({
+				url: $(form).attr("action"),
+				data: $(form).serialize(),
+				method: "POST",
+				headers: {
+					"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+						"content"
+					),
+				},
+				context: document.body,
+				success: function () {
+					barba.go($("#bookcorp-form").data("thanks"));
+				},
+				error: function () {
+					barba.go($("#bookcorp-form").data("error"));
+				},
+			});
+		},
+	});
 }
 
 $(function(){})
@@ -465,9 +465,11 @@ function front() {
 	// }
 	// console.log(arr);
 }
-$(function () {
-	front();
-});
+
+
+$(function(){})
+
+$(function(){})
 
 function gallery() {
 	if ($(".gallery-slider").length) {
@@ -594,11 +596,6 @@ function gallery() {
 	}
 }
 
-
-$(function(){})
-
-$(function(){})
-
 // function footer() {
 // 	$(".footer").append($('.footer__line'){})
 // }
@@ -611,6 +608,9 @@ function header() {
 		$(".header").toggleClass("_open-menu");
 	});
 	$(".header-menu__item a").click(function () {
+		$(".header").removeClass("_open-menu");
+	});
+	$(".header__contact").click(function () {
 		$(".header").removeClass("_open-menu");
 	});
 }
@@ -685,6 +685,7 @@ $(function () {
 	afisha();
 	gallery();
 	bookCorp();
+	front();
 	clubCard();
 	barba.hooks.after(() => {
 		aos();
@@ -697,6 +698,7 @@ $(function () {
 			gallery();
 			clubCard();
 			bookCorp();
+			front();
 		}, 100);
 	});
 

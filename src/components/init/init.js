@@ -65,6 +65,7 @@ $(function () {
 	afisha();
 	gallery();
 	bookCorp();
+	front();
 	clubCard();
 	barba.hooks.after(() => {
 		aos();
@@ -77,6 +78,7 @@ $(function () {
 			gallery();
 			clubCard();
 			bookCorp();
+			front();
 		}, 100);
 	});
 
