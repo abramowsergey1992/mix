@@ -20,7 +20,7 @@ block content
 							a.block__tab._active(href="vip.html") VIP room
 							a.block__tab(href="lobby.html") Лобби
 				.block__body 
-					.svg-map
+					.svg-map(data-href="book-table.html?table=")
 						.svg-map__scroll
 							<svg  viewBox="0 0 1342 769" fill="none" xmlns="http://www.w3.org/2000/svg">
 								g#bar
@@ -258,7 +258,7 @@ block content
 								.swiper-slide
 									.photo-slider__photo
 										+picture('vip-s-2','jpg')
-									.photo-slider__desc  VIP room №1
+									a.photo-slider__desc(href="book-table.html?table=")  VIP room №1
 								.swiper-slide
 									.photo-slider__photo
 										+picture('vip-s-3','jpg')
@@ -266,19 +266,19 @@ block content
 								.swiper-slidethis.swiper
 									.photo-slider__photo
 										+picture('vip-s-1','jpg')
-									.photo-slider__desc VIP room №3
+									a.photo-slider__desc(href="book-table.html?table=") VIP room №3
 								.swiper-slide
 									.photo-slider__photo
 										+picture('vip-s-2','jpg')
-									.photo-slider__desc  VIP room №1
+									a.photo-slider__desc(href="book-table.html?table=")  VIP room №1
 								.swiper-slide
 									.photo-slider__photo
 										+picture('vip-s-3','jpg')
-									.photo-slider__desc VIP room №2
+									a.photo-slider__desc(href="book-table.html?table=") VIP room №2
 								.swiper-slidethis.swiper
 									.photo-slider__photo
 										+picture('vip-s-1','jpg')
-									.photo-slider__desc VIP room №3
+									a.photo-slider__desc(href="book-table.html?table=") VIP room №3
 								
 								
 						.photo-slider__cursor

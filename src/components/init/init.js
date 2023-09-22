@@ -123,9 +123,9 @@ $(function () {
 						$(data.next.container).addClass("cards-next-anim");
 					}, 50);
 					return gsap.to(data.next.container, {
-						duration: 2,
+						duration: 200,
 						y: 0,
-						top: 172,
+						top: window.innerWidth <= 1024 ? 102 : 172,
 					});
 				},
 			},
@@ -158,7 +158,11 @@ $(function () {
 					$("html").addClass("_chapter-aniimte");
 					$(data.current.container).addClass("chapter-current");
 					return gsap.to(data.current.container, {
-						y: -1 * window.innerHeight + 400 + 172 + 61,
+						y:
+							-1 * window.innerHeight +
+							400 +
+							(window.innerWidth <= 1024 ? 102 : 172) +
+							(window.innerWidth <= 1024 ? 40 : 61),
 						duration: 1,
 					});
 				},

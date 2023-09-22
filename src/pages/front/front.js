@@ -48,7 +48,10 @@ function front() {
 			if (i == 0) {
 				console.log("#front-card-" + arr[0]);
 				gsap.to("#front-card-" + arr[0], {
-					top: window.innerHeight - 300,
+					top:
+						window.innerWidth < 992
+							? window.innerHeight
+							: window.innerHeight - 300,
 					zIndex: 1000,
 					width: $(".front__swiper").width(),
 					marginLeft: 0,

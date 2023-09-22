@@ -45,6 +45,7 @@ function gallery() {
 				observerUpdate: true,
 				observer: true,
 				loop: true,
+				preventClicks: false,
 				slidesPerView: "auto",
 				speed: speed,
 				preventClicks: false,

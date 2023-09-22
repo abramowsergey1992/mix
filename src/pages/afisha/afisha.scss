@@ -3,7 +3,6 @@
 	left: 50%;
 	min-width: 100vw;
 	position: relative;
-	overflow: hidden;
 	cursor: none !important;
 	position: relative;
 	margin-bottom: 150px;
@@ -84,6 +83,7 @@
 		transition: opacity 0.3s;
 		z-index: 111;
 		transform: translateX(calc(-1 * var(--inner-padding)));
+		pointer-events: none;
 
 		.afisha-slider:hover & {
 			opacity: 1;

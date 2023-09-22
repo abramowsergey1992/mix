@@ -106,6 +106,7 @@ function components() {
 				observer: true,
 				slidesPerView: "auto",
 				speed: speed,
+				preventClicks: false,
 				spaceBetween: 20,
 				breakpoints: {
 					600: {

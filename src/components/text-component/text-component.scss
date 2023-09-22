@@ -133,7 +133,7 @@
 		display: flex;
 		flex-direction: row;
 		gap: 47px;
-		width: 100%;
+
 
 		@media(max-width:500px) {
 			justify-content: space-between;
@@ -281,6 +281,13 @@
 	overflow: hidden;
 	cursor: none;
 
+	* {
+		cursor: none;
+	}
+
+	.swiper-slide {
+		overflow: hidden;
+	}
 
 	&__cursor {
 		opacity: 0;
@@ -289,6 +296,7 @@
 		height: 0;
 		transition: opacity 0.3s;
 		z-index: 111;
+		pointer-events: none;
 
 		.photo-slider:hover & {
 			opacity: 1;
@@ -328,6 +336,19 @@
 		font-style: normal;
 		font-weight: 500;
 		line-height: 40px;
+		color: #fff;
+		text-decoration: none;
+		display: block;
+
+		&::after {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			display: block;
+			content: '';
+		}
 	}
 
 	&__photo {
@@ -476,6 +497,29 @@
 
 .program {
 	width: 100%;
+
+	tr {
+		position: relative;
+	}
+
+	&__link {
+		color: #fff;
+		text-decoration: none;
+
+		&::after {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			display: block;
+			content: '';
+		}
+
+		&:hover {
+			color: $orange;
+		}
+	}
 
 	td {
 		padding: 20px 0px 14px 10px;

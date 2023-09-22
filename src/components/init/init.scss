@@ -12,12 +12,21 @@ html._chapter-aniimte {
 		}
 
 		.chapter-next {
+			@media(max-width:1024px) {
+				top: 102px;
+				transform: translateY(calc(100svh - 400px - 102px - 40px));
+			}
+
 			top: 172px;
 			transform: translateY(calc(100svh - 400px - 172px - 61px));
 		}
 
 		.chapter-current {
 			bottom: 61px;
+
+			@media(max-width:1024px) {
+				bottom: 40px;
+			}
 
 			.next-page__next,
 			.next-page__number {
@@ -53,11 +62,25 @@ html._cards-aniimte {
 			width: 100%;
 			top: 323px;
 
+			@media(max-width:1024px) {
+				top: 170px;
+			}
+
 			.title-box {
 				padding-top: 141px;
 				border-radius: 35px;
-				transition: border-radius 0.3s, height 1s, padding 1s;
+
+
+
+				transition: border-radius 0.3s,
+					height 1s,
+					padding 1s;
 				height: calc(100svh - 384px);
+
+				@media(max-width:1024px) {
+					padding-top: 102px;
+					height: calc(100svh - 170px);
+				}
 			}
 
 			&.cards-next-anim {
@@ -73,6 +96,10 @@ html._cards-aniimte {
 
 		.cards-current {
 			bottom: 61px;
+
+			@media(max-width:1024px) {
+				bottom: 41px;
+			}
 
 			.next-page__next,
 			.next-page__number {

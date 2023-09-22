@@ -7,6 +7,7 @@ function afisha() {
 				slidesPerView: "auto",
 				speed: speed,
 				spaceBetween: 194,
+				preventClicks: false,
 			});
 			let hover = false;
 			let play = false;
