@@ -31,6 +31,10 @@ html._no-scroll {
 	overflow: hidden;
 }
 
+.page {
+	overflow: hidden;
+}
+
 .mob-border-title {
 	@media(max-width:992px) {
 		width: 100%;

@@ -170,7 +170,7 @@ function front() {
 		) {
 			console.log(direction);
 			if (distance >= 50) {
-				if (top) {
+				if (direction == "down") {
 					frontDown();
 				}
 			}
