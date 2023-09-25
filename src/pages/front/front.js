@@ -157,6 +157,25 @@ function front() {
 			$("#front-card-" + arr[length - 1]).data("number")
 		);
 	});
+	$(".front__swiper").swipe({
+		preventDefaultEvents: false,
+		//Generic swipe handler for all directions
+		swipe: function (
+			event,
+			direction,
+			distance,
+			duration,
+			fingerCount,
+			fingerData
+		) {
+			console.log(direction);
+			if (distance >= 50) {
+				if (top) {
+					frontDown();
+				}
+			}
+		},
+	});
 
 	console.log(active, prev);
 

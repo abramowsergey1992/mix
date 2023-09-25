@@ -1,4 +1,78 @@
 $(function(){})
+function afisha() {
+	if ($(".afisha-slider").length) {
+		$(".afisha-slider").each(function () {
+			let $th = $(this);
+			let speed = 2000;
+			const swiper = new Swiper(".afisha-slider__swiper", {
+				slidesPerView: "auto",
+				speed: speed,
+				spaceBetween: 194,
+				preventClicks: false,
+			});
+			let hover = false;
+			let play = false;
+			let direction = "";
+			let t = 0;
+			let interval = setInterval(function () {
+				// console.log(play, direction, t);
+				if (play) {
+					if (t == 0) {
+						console.log(direction);
+						if (direction == "LEFT") {
+							swiper.slidePrev();
+						}
+						if (direction == "RIGHT") {
+							swiper.slideNext();
+						}
+					}
+					t += 100;
+					if (t == speed) {
+						t = 0;
+					}
+				}
+			}, 100);
+			$(this).hover(
+				function () {
+					play = true;
+				},
+				function () {
+					play = false;
+				}
+			);
+
+			var $cursor = $(this).find(".afisha-slider__cursor");
+
+			$(this).mousemove(function (e) {
+				console.log($th.offset().top);
+				gsap.to($cursor, 0.23, {
+					left: e.pageX - $th.offset().left,
+					top: e.pageY - $th.offset().top,
+					ease: Power4.easOut,
+				});
+
+				direction = "";
+				if (play && e.clientX < window.innerWidth / 3) {
+					play = true;
+					direction = "LEFT";
+					t = 0;
+					console.log("autoplay left");
+				}
+
+				if (
+					play &&
+					e.clientX > window.innerWidth - window.innerWidth / 3
+				) {
+					t = 0;
+					play = true;
+					direction = "RIGHT";
+					console.log("autoplay right");
+				}
+			});
+		});
+	}
+}
+
 $(function(){})
 function bookCorp() {
 	let booktable = $("#bookcorp-form").validate({
@@ -29,6 +103,116 @@ function bookCorp() {
 	});
 }
 
+function bookTable() {
+	if ($(".book").length) {
+		$(".book").click(function () {
+			barba.go($(".svg-map").data("href") + $(this).data("table"));
+		});
+	}
+	if ($(".book-table__gallery").length) {
+		let booktable = $("#booktable-form").validate({
+			errorPlacement: function (error, element) {},
+			submitHandler: function (form) {
+				$("#booktable-form button[type='submit']").attr(
+					"disabled",
+					"disabled"
+				);
+				$.ajax({
+					url: $(form).attr("action"),
+					data: $(form).serialize(),
+					method: "POST",
+					headers: {
+						"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+							"content"
+						),
+					},
+					context: document.body,
+					success: function () {
+						barba.go($("#booktable-form").data("thanks"));
+					},
+					error: function () {
+						barba.go($("#booktable-form").data("error"));
+					},
+				});
+			},
+		});
+		$(".book-table__gallery").each(function () {
+			let $th = $(this);
+			let speed = 2000;
+			let swiper = new Swiper($th.find(".book-table__swiper")[0], {
+				centeredSlides: true,
+				loop: true,
+				loopedSlides: 7,
+				observerParent: true,
+				observerUpdate: true,
+				observer: true,
+				slidesPerView: 1,
+				speed: speed,
+				spaceBetween: 0,
+				// autoplay: {
+				// 	delay: 0,
+				// },
+			});
+			let hover = false;
+			let play = false;
+			let direction = "";
+			let t = 0;
+			let interval = setInterval(function () {
+				console.log();
+				if (play) {
+					if (t == 0) {
+						console.log(direction, $th, swiper);
+						if (direction == "LEFT") {
+							swiper.slidePrev();
+						}
+						if (direction == "RIGHT") {
+							swiper.slideNext();
+						}
+					}
+					t += 100;
+					if (t == speed) {
+						t = 0;
+					}
+				}
+			}, 100);
+			$(this).hover(
+				function () {
+					play = true;
+				},
+				function () {
+					play = false;
+				}
+			);
+
+			let $cursor = $(this).find(".book-table__cursor");
+
+			$(this).mousemove(function (e) {
+				console.log(e);
+				gsap.to($cursor, 0.23, {
+					left: e.pageX - $th.offset().left,
+					top: e.pageY - $th.offset().top,
+					ease: Power4.easOut,
+				});
+
+				direction = "";
+				if (play && e.clientX < $(this).innerWidth() / 2) {
+					play = true;
+					direction = "LEFT";
+					t = 0;
+					console.log("autoplay left");
+				}
+
+				if (play && e.clientX > $(this).innerWidth() / 2) {
+					t = 0;
+					play = true;
+					direction = "RIGHT";
+					console.log("autoplay right");
+				}
+			});
+		});
+	}
+}
+
 $(function(){})
 $(function(){})
 function clubCard() {
@@ -57,6 +241,7 @@ function clubCard() {
 	});
 }
 
+$(function(){})
 function front() {
 	var isPlaying = false;
 	$(".front__player-play").click(function () {
@@ -216,6 +401,25 @@ function front() {
 			$("#front-card-" + arr[length - 1]).data("number")
 		);
 	});
+	$(".front__swiper").swipe({
+		preventDefaultEvents: false,
+		//Generic swipe handler for all directions
+		swipe: function (
+			event,
+			direction,
+			distance,
+			duration,
+			fingerCount,
+			fingerData
+		) {
+			console.log(direction);
+			if (distance >= 50) {
+				if (top) {
+					frontDown();
+				}
+			}
+		},
+	});
 
 	console.log(active, prev);
 
@@ -285,7 +489,6 @@ function front() {
 	// console.log(arr);
 }
 
-$(function(){})
 function gallery() {
 	if ($(".gallery-slider").length) {
 		$(".calendar-block .arrow-link").click(function () {
@@ -413,193 +616,16 @@ function gallery() {
 }
 
 
-function afisha() {
-	if ($(".afisha-slider").length) {
-		$(".afisha-slider").each(function () {
-			let $th = $(this);
-			let speed = 2000;
-			const swiper = new Swiper(".afisha-slider__swiper", {
-				slidesPerView: "auto",
-				speed: speed,
-				spaceBetween: 194,
-				preventClicks: false,
-			});
-			let hover = false;
-			let play = false;
-			let direction = "";
-			let t = 0;
-			let interval = setInterval(function () {
-				// console.log(play, direction, t);
-				if (play) {
-					if (t == 0) {
-						console.log(direction);
-						if (direction == "LEFT") {
-							swiper.slidePrev();
-						}
-						if (direction == "RIGHT") {
-							swiper.slideNext();
-						}
-					}
-					t += 100;
-					if (t == speed) {
-						t = 0;
-					}
-				}
-			}, 100);
-			$(this).hover(
-				function () {
-					play = true;
-				},
-				function () {
-					play = false;
-				}
-			);
-
-			var $cursor = $(this).find(".afisha-slider__cursor");
-
-			$(this).mousemove(function (e) {
-				console.log($th.offset().top);
-				gsap.to($cursor, 0.23, {
-					left: e.pageX - $th.offset().left,
-					top: e.pageY - $th.offset().top,
-					ease: Power4.easOut,
-				});
-
-				direction = "";
-				if (play && e.clientX < window.innerWidth / 3) {
-					play = true;
-					direction = "LEFT";
-					t = 0;
-					console.log("autoplay left");
-				}
-
-				if (
-					play &&
-					e.clientX > window.innerWidth - window.innerWidth / 3
-				) {
-					t = 0;
-					play = true;
-					direction = "RIGHT";
-					console.log("autoplay right");
-				}
-			});
-		});
-	}
-}
-
-function bookTable() {
-	if ($(".book").length) {
-		$(".book").click(function () {
-			barba.go($(".svg-map").data("href") + $(this).data("table"));
-		});
-	}
-	if ($(".book-table__gallery").length) {
-		let booktable = $("#booktable-form").validate({
-			errorPlacement: function (error, element) {},
-			submitHandler: function (form) {
-				$("#booktable-form button[type='submit']").attr(
-					"disabled",
-					"disabled"
-				);
-				$.ajax({
-					url: $(form).attr("action"),
-					data: $(form).serialize(),
-					method: "POST",
-					headers: {
-						"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-							"content"
-						),
-					},
-					context: document.body,
-					success: function () {
-						barba.go($("#booktable-form").data("thanks"));
-					},
-					error: function () {
-						barba.go($("#booktable-form").data("error"));
-					},
-				});
-			},
-		});
-		$(".book-table__gallery").each(function () {
-			let $th = $(this);
-			let speed = 2000;
-			let swiper = new Swiper($th.find(".book-table__swiper")[0], {
-				centeredSlides: true,
-				loop: true,
-				loopedSlides: 7,
-				observerParent: true,
-				observerUpdate: true,
-				observer: true,
-				slidesPerView: 1,
-				speed: speed,
-				spaceBetween: 0,
-				// autoplay: {
-				// 	delay: 0,
-				// },
-			});
-			let hover = false;
-			let play = false;
-			let direction = "";
-			let t = 0;
-			let interval = setInterval(function () {
-				console.log();
-				if (play) {
-					if (t == 0) {
-						console.log(direction, $th, swiper);
-						if (direction == "LEFT") {
-							swiper.slidePrev();
-						}
-						if (direction == "RIGHT") {
-							swiper.slideNext();
-						}
-					}
-					t += 100;
-					if (t == speed) {
-						t = 0;
-					}
-				}
-			}, 100);
-			$(this).hover(
-				function () {
-					play = true;
-				},
-				function () {
-					play = false;
-				}
-			);
-
-			let $cursor = $(this).find(".book-table__cursor");
-
-			$(this).mousemove(function (e) {
-				console.log(e);
-				gsap.to($cursor, 0.23, {
-					left: e.pageX - $th.offset().left,
-					top: e.pageY - $th.offset().top,
-					ease: Power4.easOut,
-				});
-
-				direction = "";
-				if (play && e.clientX < $(this).innerWidth() / 2) {
-					play = true;
-					direction = "LEFT";
-					t = 0;
-					console.log("autoplay left");
-				}
-
-				if (play && e.clientX > $(this).innerWidth() / 2) {
-					t = 0;
-					play = true;
-					direction = "RIGHT";
-					console.log("autoplay right");
-				}
-			});
-		});
-	}
-}
-
-$(function(){})
 $(function(){})
 
+$(function(){})
+
+// function footer() {
+// 	$(".footer").append($('.footer__line'){})
+// }
+// $(function () {
+// 	footer();
+// });
 
 function header() {
 	$(".header__open-menu").click(function () {
@@ -614,6 +640,186 @@ function header() {
 }
 $(function () {
 	header();
+});
+
+$(function () {
+	function aos() {
+		AOS.init({
+			startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+			initClassName: "aos-init", // class applied after initialization
+			animatedClassName: "is-inview", // class applied on animation
+			useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+			disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+			throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+			offset: 120, // offset (in px) from the original trigger point
+			delay: 0, // values from 0 to 3000, with step 50ms
+			duration: 1000, // values from 0 to 3000, with step 50ms
+			easing: "ease", // default easing for AOS animations
+			once: false, // whether animation should happen only once - while scrolling down
+			mirror: false, // whether elements should animate out while scrolling past them
+			anchorPlacement: "top-bottom",
+		});
+	}
+	components();
+	// let scroll = new LocomotiveScroll({
+	// 	el: document.querySelector("[data-aos-container]"),
+	// 	smooth: true,
+	// });
+	// scroll.on("scroll", (args) => {
+	// 	// Get all current elements : args.currentElements
+
+	// 	if (typeof args.currentElements === "object") {
+	// 		// let progress = args.currentElements["hhh"].progress;
+	// 		let progress = 0;
+
+	// 		for (key in args.currentElements) {
+	// 			console.log(
+	// 				$(args.currentElements[key].el).hasClass("two-photo")
+	// 			);
+	// 			if ($(args.currentElements[key].el).hasClass("two-photo")) {
+	// 				let $th = $(args.currentElements[key].el);
+	// 				$th.find(".two-photo__big:first-child").css(
+	// 					"padding-right",
+	// 					args.currentElements[key].progress * 174
+	// 				);
+	// 				$th.find(".two-photo__small:last-child").css(
+	// 					"padding-left",
+	// 					(1 - args.currentElements[key].progress) * 174
+	// 				);
+	// 				$th.find(".two-photo__big:last-child").css(
+	// 					"padding-left",
+	// 					args.currentElements[key].progress * 174
+	// 				);
+	// 				$th.find(".two-photo__small:first-child").css(
+	// 					"padding-right",
+	// 					(1 - args.currentElements[key].progress) * 174
+	// 				);
+	// 			}
+	// 		}
+
+	// 		// ouput log example: 0.34
+	// 		// gsap example : myGsapAnimation.progress(progress);
+	// 	}
+	// });
+	aos();
+	bookTable();
+	afisha();
+	gallery();
+	bookCorp();
+	front();
+	clubCard();
+	barba.hooks.after(() => {
+		aos();
+	});
+	barba.hooks.before(() => {
+		setTimeout(function () {
+			components();
+			bookTable();
+			afisha();
+			gallery();
+			clubCard();
+			bookCorp();
+			front();
+		}, 100);
+	});
+
+	barba.init({
+		transitions: [
+			{
+				sync: true,
+				name: "card",
+				from: {
+					namespace: ["front"],
+				},
+				to: {
+					namespace: ["chapter"],
+				},
+				beforeLeave() {
+					gsap.to(".front-card", {
+						top: 0,
+						zIndex: 0,
+						width: $(".front__swiper").width(),
+						marginLeft: 0,
+						duration: 0.2,
+					});
+				},
+				afterLeave() {
+					$("html").removeClass("_cards-aniimte  ");
+					$(".cards-current").removeClass("cards-current");
+					$(".cards-next").removeClass("cards-next");
+					// $("html,body").scrollTo(0);
+				},
+				leave(data) {
+					$("html,body").scrollTop(0);
+					$("html").addClass("_cards-aniimte");
+					$(data.current.container).addClass("cards-current");
+					return gsap.to(data.current.container, {
+						opacity: 0,
+						duration: 0.5,
+					});
+				},
+				enter(data) {
+					$(data.next.container).addClass("cards-next");
+					setTimeout(function () {
+						$(data.next.container).addClass("cards-next-anim");
+					}, 50);
+					return gsap.to(data.next.container, {
+						duration: 200,
+						y: 0,
+						top: window.innerWidth <= 1024 ? 102 : 172,
+					});
+				},
+			},
+			{
+				sync: true,
+				name: "chapter",
+				from: {
+					namespace: ["chapter"],
+				},
+				to: {
+					namespace: ["chapter"],
+				},
+
+				// beforeEnter(data) {
+				// 	$(data.current.container).addClass("chapter-current");
+				// },
+				// beforeLeave(data) {
+				// 	$("html,body").scrollTo(0);
+				// 	$("html").addClass("_chapter-aniimte  ");
+				// 	$(data.next.container).addClass("chapter-next");
+				// },
+				afterLeave() {
+					$("html").removeClass("_chapter-aniimte  ");
+					$(".chapter-current").removeClass("chapter-current");
+					$(".chapter-next").removeClass("chapter-next");
+					// $("html,body").scrollTo(0);
+				},
+				leave(data) {
+					$("html,body").scrollTop(0);
+					$("html").addClass("_chapter-aniimte");
+					$(data.current.container).addClass("chapter-current");
+					return gsap.to(data.current.container, {
+						y:
+							-1 * window.innerHeight +
+							400 +
+							(window.innerWidth <= 1024 ? 102 : 172) +
+							(window.innerWidth <= 1024 ? 40 : 61),
+						duration: 1,
+					});
+				},
+				enter(data) {
+					$(data.next.container).addClass("chapter-next");
+					return gsap.to(data.next.container, {
+						duration: 1,
+						y: 0,
+					});
+				},
+			},
+		],
+	});
 });
 
 function popup() {
@@ -699,13 +905,6 @@ function popup() {
 $(function () {
 	popup();
 });
-
-// function footer() {
-// 	$(".footer").append($('.footer__line'){})
-// }
-// $(function () {
-// 	footer();
-// });
 
 function components() {
 	$(".block__head").append('<span class="block__head-line"></span>');
@@ -952,183 +1151,3 @@ function components() {
 		});
 	}
 }
-
-$(function () {
-	function aos() {
-		AOS.init({
-			startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
-			initClassName: "aos-init", // class applied after initialization
-			animatedClassName: "is-inview", // class applied on animation
-			useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-			disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-			throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-			offset: 120, // offset (in px) from the original trigger point
-			delay: 0, // values from 0 to 3000, with step 50ms
-			duration: 1000, // values from 0 to 3000, with step 50ms
-			easing: "ease", // default easing for AOS animations
-			once: false, // whether animation should happen only once - while scrolling down
-			mirror: false, // whether elements should animate out while scrolling past them
-			anchorPlacement: "top-bottom",
-		});
-	}
-	components();
-	// let scroll = new LocomotiveScroll({
-	// 	el: document.querySelector("[data-aos-container]"),
-	// 	smooth: true,
-	// });
-	// scroll.on("scroll", (args) => {
-	// 	// Get all current elements : args.currentElements
-
-	// 	if (typeof args.currentElements === "object") {
-	// 		// let progress = args.currentElements["hhh"].progress;
-	// 		let progress = 0;
-
-	// 		for (key in args.currentElements) {
-	// 			console.log(
-	// 				$(args.currentElements[key].el).hasClass("two-photo")
-	// 			);
-	// 			if ($(args.currentElements[key].el).hasClass("two-photo")) {
-	// 				let $th = $(args.currentElements[key].el);
-	// 				$th.find(".two-photo__big:first-child").css(
-	// 					"padding-right",
-	// 					args.currentElements[key].progress * 174
-	// 				);
-	// 				$th.find(".two-photo__small:last-child").css(
-	// 					"padding-left",
-	// 					(1 - args.currentElements[key].progress) * 174
-	// 				);
-	// 				$th.find(".two-photo__big:last-child").css(
-	// 					"padding-left",
-	// 					args.currentElements[key].progress * 174
-	// 				);
-	// 				$th.find(".two-photo__small:first-child").css(
-	// 					"padding-right",
-	// 					(1 - args.currentElements[key].progress) * 174
-	// 				);
-	// 			}
-	// 		}
-
-	// 		// ouput log example: 0.34
-	// 		// gsap example : myGsapAnimation.progress(progress);
-	// 	}
-	// });
-	aos();
-	bookTable();
-	afisha();
-	gallery();
-	bookCorp();
-	front();
-	clubCard();
-	barba.hooks.after(() => {
-		aos();
-	});
-	barba.hooks.before(() => {
-		setTimeout(function () {
-			components();
-			bookTable();
-			afisha();
-			gallery();
-			clubCard();
-			bookCorp();
-			front();
-		}, 100);
-	});
-
-	barba.init({
-		transitions: [
-			{
-				sync: true,
-				name: "card",
-				from: {
-					namespace: ["front"],
-				},
-				to: {
-					namespace: ["chapter"],
-				},
-				beforeLeave() {
-					gsap.to(".front-card", {
-						top: 0,
-						zIndex: 0,
-						width: $(".front__swiper").width(),
-						marginLeft: 0,
-						duration: 0.2,
-					});
-				},
-				afterLeave() {
-					$("html").removeClass("_cards-aniimte  ");
-					$(".cards-current").removeClass("cards-current");
-					$(".cards-next").removeClass("cards-next");
-					// $("html,body").scrollTo(0);
-				},
-				leave(data) {
-					$("html,body").scrollTop(0);
-					$("html").addClass("_cards-aniimte");
-					$(data.current.container).addClass("cards-current");
-					return gsap.to(data.current.container, {
-						opacity: 0,
-						duration: 0.5,
-					});
-				},
-				enter(data) {
-					$(data.next.container).addClass("cards-next");
-					setTimeout(function () {
-						$(data.next.container).addClass("cards-next-anim");
-					}, 50);
-					return gsap.to(data.next.container, {
-						duration: 200,
-						y: 0,
-						top: window.innerWidth <= 1024 ? 102 : 172,
-					});
-				},
-			},
-			{
-				sync: true,
-				name: "chapter",
-				from: {
-					namespace: ["chapter"],
-				},
-				to: {
-					namespace: ["chapter"],
-				},
-
-				// beforeEnter(data) {
-				// 	$(data.current.container).addClass("chapter-current");
-				// },
-				// beforeLeave(data) {
-				// 	$("html,body").scrollTo(0);
-				// 	$("html").addClass("_chapter-aniimte  ");
-				// 	$(data.next.container).addClass("chapter-next");
-				// },
-				afterLeave() {
-					$("html").removeClass("_chapter-aniimte  ");
-					$(".chapter-current").removeClass("chapter-current");
-					$(".chapter-next").removeClass("chapter-next");
-					// $("html,body").scrollTo(0);
-				},
-				leave(data) {
-					$("html,body").scrollTop(0);
-					$("html").addClass("_chapter-aniimte");
-					$(data.current.container).addClass("chapter-current");
-					return gsap.to(data.current.container, {
-						y:
-							-1 * window.innerHeight +
-							400 +
-							(window.innerWidth <= 1024 ? 102 : 172) +
-							(window.innerWidth <= 1024 ? 40 : 61),
-						duration: 1,
-					});
-				},
-				enter(data) {
-					$(data.next.container).addClass("chapter-next");
-					return gsap.to(data.next.container, {
-						duration: 1,
-						y: 0,
-					});
-				},
-			},
-		],
-	});
-});
