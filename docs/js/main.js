@@ -1,109 +1,4 @@
 $(function(){})
-function bookCorp() {
-	let booktable = $("#bookcorp-form").validate({
-		errorPlacement: function (error, element) {},
-		submitHandler: function (form) {
-			$("#bookcorp-form button[type='submit']").attr(
-				"disabled",
-				"disabled"
-			);
-			$.ajax({
-				url: $(form).attr("action"),
-				data: $(form).serialize(),
-				method: "POST",
-				headers: {
-					"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-						"content"
-					),
-				},
-				context: document.body,
-				success: function () {
-					barba.go($("#bookcorp-form").data("thanks"));
-				},
-				error: function () {
-					barba.go($("#bookcorp-form").data("error"));
-				},
-			});
-		},
-	});
-}
-
-$(function(){})
-function afisha() {
-	if ($(".afisha-slider").length) {
-		$(".afisha-slider").each(function () {
-			let $th = $(this);
-			let speed = 2000;
-			const swiper = new Swiper(".afisha-slider__swiper", {
-				slidesPerView: "auto",
-				speed: speed,
-				spaceBetween: 194,
-				preventClicks: false,
-			});
-			let hover = false;
-			let play = false;
-			let direction = "";
-			let t = 0;
-			let interval = setInterval(function () {
-				// console.log(play, direction, t);
-				if (play) {
-					if (t == 0) {
-						console.log(direction);
-						if (direction == "LEFT") {
-							swiper.slidePrev();
-						}
-						if (direction == "RIGHT") {
-							swiper.slideNext();
-						}
-					}
-					t += 100;
-					if (t == speed) {
-						t = 0;
-					}
-				}
-			}, 100);
-			$(this).hover(
-				function () {
-					play = true;
-				},
-				function () {
-					play = false;
-				}
-			);
-
-			var $cursor = $(this).find(".afisha-slider__cursor");
-
-			$(this).mousemove(function (e) {
-				console.log($th.offset().top);
-				gsap.to($cursor, 0.23, {
-					left: e.pageX - $th.offset().left,
-					top: e.pageY - $th.offset().top,
-					ease: Power4.easOut,
-				});
-
-				direction = "";
-				if (play && e.clientX < window.innerWidth / 3) {
-					play = true;
-					direction = "LEFT";
-					t = 0;
-					console.log("autoplay left");
-				}
-
-				if (
-					play &&
-					e.clientX > window.innerWidth - window.innerWidth / 3
-				) {
-					t = 0;
-					play = true;
-					direction = "RIGHT";
-					console.log("autoplay right");
-				}
-			});
-		});
-	}
-}
-
-$(function(){})
 function bookTable() {
 	if ($(".book").length) {
 		$(".book").click(function () {
@@ -214,12 +109,89 @@ function bookTable() {
 	}
 }
 
+function afisha() {
+	if ($(".afisha-slider").length) {
+		$(".afisha-slider").each(function () {
+			let $th = $(this);
+			let speed = 2000;
+			const swiper = new Swiper(".afisha-slider__swiper", {
+				slidesPerView: "auto",
+				speed: speed,
+				spaceBetween: 194,
+				preventClicks: false,
+			});
+			let hover = false;
+			let play = false;
+			let direction = "";
+			let t = 0;
+			let interval = setInterval(function () {
+				// console.log(play, direction, t);
+				if (play) {
+					if (t == 0) {
+						console.log(direction);
+						if (direction == "LEFT") {
+							swiper.slidePrev();
+						}
+						if (direction == "RIGHT") {
+							swiper.slideNext();
+						}
+					}
+					t += 100;
+					if (t == speed) {
+						t = 0;
+					}
+				}
+			}, 100);
+			$(this).hover(
+				function () {
+					play = true;
+				},
+				function () {
+					play = false;
+				}
+			);
+
+			var $cursor = $(this).find(".afisha-slider__cursor");
+
+			$(this).mousemove(function (e) {
+				console.log($th.offset().top);
+				gsap.to($cursor, 0.23, {
+					left: e.pageX - $th.offset().left,
+					top: e.pageY - $th.offset().top,
+					ease: Power4.easOut,
+				});
+
+				direction = "";
+				if (play && e.clientX < window.innerWidth / 3) {
+					play = true;
+					direction = "LEFT";
+					t = 0;
+					console.log("autoplay left");
+				}
+
+				if (
+					play &&
+					e.clientX > window.innerWidth - window.innerWidth / 3
+				) {
+					t = 0;
+					play = true;
+					direction = "RIGHT";
+					console.log("autoplay right");
+				}
+			});
+		});
+	}
+}
+
 $(function(){})
-function clubCard() {
-	let card = $("#card-form").validate({
+function bookCorp() {
+	let booktable = $("#bookcorp-form").validate({
 		errorPlacement: function (error, element) {},
 		submitHandler: function (form) {
-			$("#card-form button[type='submit']").attr("disabled", "disabled");
+			$("#bookcorp-form button[type='submit']").attr(
+				"disabled",
+				"disabled"
+			);
 			$.ajax({
 				url: $(form).attr("action"),
 				data: $(form).serialize(),
@@ -231,10 +203,10 @@ function clubCard() {
 				},
 				context: document.body,
 				success: function () {
-					barba.go($("#card-form").data("thanks"));
+					barba.go($("#bookcorp-form").data("thanks"));
 				},
 				error: function () {
-					barba.go($("#card-form").data("error"));
+					barba.go($("#bookcorp-form").data("error"));
 				},
 			});
 		},
@@ -413,8 +385,8 @@ function front() {
 			fingerData
 		) {
 			console.log(direction);
-			if (distance >= 50) {
-				if (direction == "down") {
+			if (distance >= 30) {
+				if (direction == "down" && window.innerWidth < 992) {
 					frontDown();
 				}
 			}
@@ -489,6 +461,33 @@ function front() {
 	// console.log(arr);
 }
 
+function clubCard() {
+	let card = $("#card-form").validate({
+		errorPlacement: function (error, element) {},
+		submitHandler: function (form) {
+			$("#card-form button[type='submit']").attr("disabled", "disabled");
+			$.ajax({
+				url: $(form).attr("action"),
+				data: $(form).serialize(),
+				method: "POST",
+				headers: {
+					"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+						"content"
+					),
+				},
+				context: document.body,
+				success: function () {
+					barba.go($("#card-form").data("thanks"));
+				},
+				error: function () {
+					barba.go($("#card-form").data("error"));
+				},
+			});
+		},
+	});
+}
+
+$(function(){})
 function gallery() {
 	if ($(".gallery-slider").length) {
 		$(".calendar-block .arrow-link").click(function () {
@@ -615,10 +614,11 @@ function gallery() {
 	}
 }
 
-
+$(function(){})
+$(function(){})
 $(function(){})
 
-$(function(){})
+
 
 // function footer() {
 // 	$(".footer").append($('.footer__line'){})
@@ -640,6 +640,90 @@ function header() {
 }
 $(function () {
 	header();
+});
+
+function popup() {
+	$(".popup-gallery__close").click(function () {
+		$(".popup-gallery").fadeOut();
+	});
+	$(".popup-gallery__slider").each(function () {
+		let $th = $(this);
+		let speed = 2000;
+		let swiper = new Swiper($th.find(".popup-gallery__swiper")[0], {
+			observerParent: true,
+			observerUpdate: true,
+			observer: true,
+			loop: true,
+			slidesPerView: 1,
+			loopedSlides: 7,
+			speed: speed,
+			spaceBetween: 20,
+			breakpoints: {
+				600: {
+					spaceBetween: 50,
+				},
+				1300: {
+					spaceBetween: 97,
+				},
+			},
+		});
+		let hover = false;
+		let play = false;
+		let direction = "";
+		let t = 0;
+		let interval = setInterval(function () {
+			if (play) {
+				if (t == 0) {
+					if (direction == "LEFT") {
+						swiper.slidePrev();
+						console.log("left !!!!");
+					}
+					if (direction == "RIGHT") {
+						swiper.slideNext();
+					}
+				}
+				t += 100;
+				if (t == speed) {
+					t = 0;
+				}
+			}
+		}, 100);
+		$(this).hover(
+			function () {
+				play = true;
+			},
+			function () {
+				play = false;
+			}
+		);
+
+		let $cursor = $(this).find(".popup-gallery__cursor");
+
+		$(this).mousemove(function (e) {
+			gsap.to($cursor, 0.23, {
+				left: e.pageX,
+				top: e.pageY - $th.offset().top,
+				ease: Power4.easOut,
+			});
+
+			direction = "";
+			if (play && e.clientX < window.innerWidth / 3) {
+				play = true;
+				direction = "LEFT";
+
+				console.log("autoplay left");
+			}
+
+			if (play && e.clientX > window.innerWidth - window.innerWidth / 3) {
+				play = true;
+				direction = "RIGHT";
+				console.log("autoplay right");
+			}
+		});
+	});
+}
+$(function () {
+	popup();
 });
 
 $(function () {
@@ -820,90 +904,6 @@ $(function () {
 			},
 		],
 	});
-});
-
-function popup() {
-	$(".popup-gallery__close").click(function () {
-		$(".popup-gallery").fadeOut();
-	});
-	$(".popup-gallery__slider").each(function () {
-		let $th = $(this);
-		let speed = 2000;
-		let swiper = new Swiper($th.find(".popup-gallery__swiper")[0], {
-			observerParent: true,
-			observerUpdate: true,
-			observer: true,
-			loop: true,
-			slidesPerView: 1,
-			loopedSlides: 7,
-			speed: speed,
-			spaceBetween: 20,
-			breakpoints: {
-				600: {
-					spaceBetween: 50,
-				},
-				1300: {
-					spaceBetween: 97,
-				},
-			},
-		});
-		let hover = false;
-		let play = false;
-		let direction = "";
-		let t = 0;
-		let interval = setInterval(function () {
-			if (play) {
-				if (t == 0) {
-					if (direction == "LEFT") {
-						swiper.slidePrev();
-						console.log("left !!!!");
-					}
-					if (direction == "RIGHT") {
-						swiper.slideNext();
-					}
-				}
-				t += 100;
-				if (t == speed) {
-					t = 0;
-				}
-			}
-		}, 100);
-		$(this).hover(
-			function () {
-				play = true;
-			},
-			function () {
-				play = false;
-			}
-		);
-
-		let $cursor = $(this).find(".popup-gallery__cursor");
-
-		$(this).mousemove(function (e) {
-			gsap.to($cursor, 0.23, {
-				left: e.pageX,
-				top: e.pageY - $th.offset().top,
-				ease: Power4.easOut,
-			});
-
-			direction = "";
-			if (play && e.clientX < window.innerWidth / 3) {
-				play = true;
-				direction = "LEFT";
-
-				console.log("autoplay left");
-			}
-
-			if (play && e.clientX > window.innerWidth - window.innerWidth / 3) {
-				play = true;
-				direction = "RIGHT";
-				console.log("autoplay right");
-			}
-		});
-	});
-}
-$(function () {
-	popup();
 });
 
 function components() {

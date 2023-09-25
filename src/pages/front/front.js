@@ -169,8 +169,8 @@ function front() {
 			fingerData
 		) {
 			console.log(direction);
-			if (distance >= 50) {
-				if (direction == "down") {
+			if (distance >= 30) {
+				if (direction == "down" && window.innerWidth < 992) {
 					frontDown();
 				}
 			}
