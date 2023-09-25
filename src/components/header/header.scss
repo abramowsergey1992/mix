@@ -36,7 +36,7 @@ body:has(#popup-template) {
 		transition: filter 0.3s;
 
 		._open-menu & {
-			filter: brightness(0);
+			// filter: brightness(0);
 		}
 
 		img {
@@ -78,7 +78,7 @@ body:has(#popup-template) {
 		}
 
 		._open-menu & {
-			color: #000;
+
 
 			&:hover {
 				color: $orange;
@@ -121,7 +121,7 @@ body:has(#popup-template) {
 }
 
 .header-menu {
-	background: #ECECEC;
+	background: $dark;
 
 	position: absolute;
 	left: 0;
@@ -154,7 +154,7 @@ body:has(#popup-template) {
 	&__lang {
 		position: absolute;
 		width: 194px;
-		color: #000;
+		color: #fff;
 		text-align: center;
 		font-size: 16px;
 		font-weight: 500;
@@ -183,7 +183,7 @@ body:has(#popup-template) {
 	&__card {
 		position: absolute;
 		width: 194px;
-		color: #000;
+		color: #fff;
 		text-align: center;
 		font-size: 16px;
 		font-weight: 500;
@@ -198,7 +198,7 @@ body:has(#popup-template) {
 	}
 
 	&__copy {
-		color: #000;
+		color: #fff;
 		text-align: center;
 		font-size: 14px;
 		font-weight: 400;
@@ -223,12 +223,12 @@ body:has(#popup-template) {
 		display: flex;
 		flex-direction: column;
 		flex: 1;
-		border-bottom: 1px solid #000;
+		border-bottom: 1px solid#ffffff2f;
 		counter-reset: counter1 0;
 
 		li {
 			counter-increment: counter1;
-			border-top: 1px solid #000;
+			border-top: 1px solid #ffffff2f;
 			display: flex;
 			flex-direction: column;
 			flex: 1;
@@ -269,7 +269,7 @@ body:has(#popup-template) {
 
 			a {
 				position: relative;
-				color: #000;
+				color: #fff;
 				text-decoration: none;
 				font-size: calc(((100svh - 250px)/7)*0.65);
 				font-style: normal;
@@ -291,7 +291,7 @@ body:has(#popup-template) {
 				}
 
 				&::before {
-					color: #000;
+					color: #fff;
 					font-family: Helvetica Neue;
 					font-size: 16px;
 					font-style: normal;
