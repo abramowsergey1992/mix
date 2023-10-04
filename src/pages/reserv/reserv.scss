@@ -50,6 +50,26 @@
 			}
 		}
 
+		&[data-table="vip"] {
+			.text {
+				fill: #fff !important;
+			}
+
+			&._busy,
+			&:hover {
+
+
+				rect,
+				path[fill] {
+					fill: $orange ;
+				}
+			}
+
+			rect,
+			path[fill] {
+				fill: rgb(75, 76, 76);
+			}
+		}
 	}
 
 	&__legends {
