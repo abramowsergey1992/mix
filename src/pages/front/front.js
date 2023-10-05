@@ -173,6 +173,9 @@ function front() {
 				if (direction == "down" && window.innerWidth < 992) {
 					frontDown();
 				}
+				if (direction == "up" && window.innerWidth < 992) {
+					frontUp();
+				}
 			}
 		},
 	});
