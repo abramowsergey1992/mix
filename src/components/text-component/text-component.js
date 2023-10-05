@@ -7,7 +7,11 @@ function components() {
 		var result = $(this)
 			.html()
 			.replace(/[\wа-яё,.!:;(&)]+/gim, function (s) {
-				return s === "br" || s === "i" ? s : "<span>" + s + "</span>";
+				return s === "br" || s === "i"
+					? s
+					: "<span>" + s + "</span>" || s === "b"
+					? s
+					: "<span>" + s + "</span>";
 			});
 
 		$(this).html(result);

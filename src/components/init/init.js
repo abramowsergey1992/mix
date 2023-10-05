@@ -68,6 +68,7 @@ $(function () {
 	front();
 	clubCard();
 	barba.hooks.after(() => {
+		console.log("after");
 		aos();
 	});
 	barba.hooks.before(() => {
@@ -107,11 +108,18 @@ $(function () {
 					$(".cards-current").removeClass("cards-current");
 					$(".cards-next").removeClass("cards-next");
 					// $("html,body").scrollTo(0);
+
+					console.log("afterLeave");
+				},
+				after(data) {
+					console.log("after");
 				},
 				leave(data) {
 					$("html,body").scrollTop(0);
 					$("html").addClass("_cards-aniimte");
 					$(data.current.container).addClass("cards-current");
+					console.log("leave");
+
 					return gsap.to(data.current.container, {
 						opacity: 0,
 						duration: 0.5,
@@ -123,7 +131,7 @@ $(function () {
 						$(data.next.container).addClass("cards-next-anim");
 					}, 50);
 					return gsap.to(data.next.container, {
-						duration: 200,
+						duration: 1,
 						y: 0,
 						top: window.innerWidth <= 1024 ? 102 : 172,
 					});
