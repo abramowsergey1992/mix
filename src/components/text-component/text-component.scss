@@ -271,6 +271,27 @@
 	}
 }
 
+.pdf-view {
+	position: relative;
+
+	object {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+
+	}
+
+	margin-bottom: 80px;
+
+	&::before {
+		display: block;
+		content: '';
+		padding-bottom: calc(100svh - 100px);
+	}
+}
+
 .photo-slider {
 	margin-bottom: 155px;
 	margin-bottom: 74px;
