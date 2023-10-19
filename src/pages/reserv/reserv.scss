@@ -1,4 +1,7 @@
 .svg-map {
+	.relative {
+		min-width: 800px;
+	}
 
 	&__scroll {
 		overflow: auto;
@@ -129,6 +132,26 @@
 		font-size: calc(0.015 * 800px);
 		width: 2.8%;
 		line-height: calc(0.015 * 800px);
+	}
+
+	&._vip-1 {
+		left: 31.17%;
+		top: 32%;
+	}
+
+	&._vip-2 {
+		left: 46.4%;
+		top: 32%;
+	}
+
+	&._vip-3 {
+		left: 61.5%;
+		top: 32%;
+	}
+
+	&._vip-4 {
+		left: 76.8%;
+		top: 32%;
 	}
 
 	&._table-1 {
