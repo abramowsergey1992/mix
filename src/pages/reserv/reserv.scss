@@ -108,6 +108,10 @@
 	}
 }
 
+.relative {
+	position: relative;
+}
+
 .book-number {
 	font-family: Arial;
 	font-weight: 500;
@@ -121,69 +125,75 @@
 	line-height: calc(0.015 * (100vw - 2*var(--inner-padding)));
 	pointer-events: none;
 
+	@media(max-width:800px) {
+		font-size: calc(0.015 * 800px);
+		width: 2.8%;
+		line-height: calc(0.015 * 800px);
+	}
+
 	&._table-1 {
 		left: 5.7%;
-		top: 28.8%;
+		top: 34.3%;
 	}
 
 	&._table-2 {
 		left: 5.7%;
-		top: 42.4%;
+		top: 50.2%;
 	}
 
 	&._table-3 {
 		left: 25.5%;
-		top: 72.1%;
+		top: 85.6%;
 	}
 
 	&._table-4 {
 		left: 49.3%;
-		top: 72.1%;
+		top: 85.6%;
 	}
 
 	&._table-5 {
 		left: 62.5%;
-		top: 72.1%;
+		top: 85.6%;
 	}
 
 	&._table-6 {
 		left: 85.6%;
-		top: 72.1%;
+		top: 85.6%;
 	}
 
 	&._table-7 {
 		left: 42.3%;
-		top: 48.4%;
+		top: 57.4%;
 	}
 
 	&._table-8 {
 		left: 72.3%;
-		top: 48.4%;
+		top: 57.4%;
 	}
 
 	&._table-9 {
 		left: 6.7%;
-		top: 9.8%;
+		top: 11.5%;
 	}
 
 	&._table-10 {
 		left: 19.7%;
-		top: 10.1%;
+		top: 12.0%;
 	}
 
 	&._table-11 {
 		left: 36.9%;
-		top: 10%;
+		top: 12.0%;
 	}
 
 	&._table-12 {
 		left: 48.87%;
-		top: 10%;
+		top: 12.0%;
 	}
 
 	&._table-13 {
 		left: 61.4%;
-		top: 9.9%;
+		top: 12.0%;
 	}
 }
 
