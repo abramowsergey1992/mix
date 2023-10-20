@@ -134,6 +134,14 @@
 		line-height: calc(0.015 * 800px);
 	}
 
+	&._small {
+		font-size: calc(0.010 * (100vw - 2 * var(--inner-padding)));
+
+		@media(max-width:800px) {
+			font-size: calc(0.010 * 800px);
+		}
+	}
+
 	&._vip-1 {
 		left: 31.17%;
 		top: 32%;
