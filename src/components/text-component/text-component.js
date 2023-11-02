@@ -1,20 +1,18 @@
 function components() {
 	$(".block__head").append('<span class="block__head-line"></span>');
 	$(".block h2,.block .h2:not(a)").each(function () {
+		console.log($(this));
 		let $th = $(this);
 		$(this).after('<div class="block__h2-lines h2">');
 		$(this).wrap('<div class="block__h2-default">');
 		var result = $(this)
 			.html()
-			.replace(/[\wа-яё,.!:;(&)]+/gim, function (s) {
-				return s === "br" || s === "i"
-					? s
-					: "<span>" + s + "</span>" || s === "b"
-					? s
-					: "<span>" + s + "</span>";
+			.replace(/[\wа-яё,.!:;(&)\-]+/gim, function (s) {
+				return s === "br" || s === "i" ? s : "<span>" + s + "</span>";
 			});
 
 		$(this).html(result);
+		console.log(result);
 
 		$(this)
 			.find("i span")
