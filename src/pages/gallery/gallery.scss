@@ -125,6 +125,8 @@
 
 .lastevent {
 	width: 100%;
+	position: relative;
+	overflow: hidden;
 
 	tr {
 		position: relative;
@@ -163,6 +165,7 @@
 			max-width: 100px;
 			padding: 0;
 			text-align: right;
+			position: relative;
 
 			@media(max-width:992px) {
 				opacity: 0;
@@ -176,9 +179,9 @@
 
 				&::after {
 					position: absolute;
-					left: 0;
+					left: -100vw;
 					top: 0;
-					width: 100%;
+					width: 200vw;
 					height: 100%;
 					display: block;
 					content: '';

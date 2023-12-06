@@ -2517,6 +2517,8 @@ body:has(.front) #pagescroll {
 
 .lastevent {
   width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .lastevent tr {
@@ -2550,6 +2552,7 @@ body:has(.front) #pagescroll {
   max-width: 100px;
   padding: 0;
   text-align: right;
+  position: relative;
 }
 
 .lastevent td:last-child a {
@@ -2560,9 +2563,9 @@ body:has(.front) #pagescroll {
 
 .lastevent td:last-child a::after {
   position: absolute;
-  left: 0;
+  left: -100vw;
   top: 0;
-  width: 100%;
+  width: 200vw;
   height: 100%;
   display: block;
   content: "";
