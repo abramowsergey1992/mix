@@ -1,0 +1,10 @@
+.social-links {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 10px 30px;
+
+	@media(min-width:1200px) {
+		gap: 10px 60px;
+	}
+}
