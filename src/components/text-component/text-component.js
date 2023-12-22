@@ -106,8 +106,12 @@ function components() {
 				observerParent: true,
 				observerUpdate: true,
 				observer: true,
+				freemode: true,
 				slidesPerView: "auto",
-				speed: speed,
+				// speed: speed,
+				mousewheel: {
+					forceToAxis: true,
+				},
 				preventClicks: false,
 				spaceBetween: 20,
 				breakpoints: {
@@ -122,63 +126,63 @@ function components() {
 				// 	delay: 0,
 				// },
 			});
-			let hover = false;
-			let play = false;
-			let direction = "";
-			let t = 0;
-			let interval = setInterval(function () {
-				console.log();
-				if (play) {
-					if (t == 0) {
-						if (direction == "LEFT") {
-							swiper.slidePrev();
-						}
-						if (direction == "RIGHT") {
-							swiper.slideNext();
-						}
-					}
-					t += 100;
-					if (t == speed) {
-						t = 0;
-					}
-				}
-			}, 100);
-			$(this).hover(
-				function () {
-					play = true;
-				},
-				function () {
-					play = false;
-				}
-			);
+			// let hover = false;
+			// let play = false;
+			// let direction = "";
+			// let t = 0;
+			// let interval = setInterval(function () {
+			// 	console.log();
+			// 	if (play) {
+			// 		if (t == 0) {
+			// 			if (direction == "LEFT") {
+			// 				swiper.slidePrev();
+			// 			}
+			// 			if (direction == "RIGHT") {
+			// 				swiper.slideNext();
+			// 			}
+			// 		}
+			// 		t += 100;
+			// 		if (t == speed) {
+			// 			t = 0;
+			// 		}
+			// 	}
+			// }, 100);
+			// $(this).hover(
+			// 	function () {
+			// 		play = true;
+			// 	},
+			// 	function () {
+			// 		play = false;
+			// 	}
+			// );
 
-			let $cursor = $(this).find(".photo-slider__cursor");
+			// let $cursor = $(this).find(".photo-slider__cursor");
 
-			$(this).mousemove(function (e) {
-				gsap.to($cursor, 0.23, {
-					left: e.pageX,
-					top: e.pageY - $th.offset().top,
-					ease: Power4.easOut,
-				});
+			// $(this).mousemove(function (e) {
+			// 	gsap.to($cursor, 0.23, {
+			// 		left: e.pageX,
+			// 		top: e.pageY - $th.offset().top,
+			// 		ease: Power4.easOut,
+			// 	});
 
-				direction = "";
-				if (play && e.clientX < window.innerWidth / 3) {
-					play = true;
-					direction = "LEFT";
-					t = 0;
-					console.log("autoplay left");
-				}
+			// 	direction = "";
+			// 	if (play && e.clientX < window.innerWidth / 3) {
+			// 		play = true;
+			// 		direction = "LEFT";
+			// 		t = 0;
+			// 		console.log("autoplay left");
+			// 	}
 
-				if (
-					play &&
-					e.clientX > window.innerWidth - window.innerWidth / 3
-				) {
-					t = 0;
-					play = true;
-					direction = "RIGHT";
-					console.log("autoplay right");
-				}
-			});
+			// 	if (
+			// 		play &&
+			// 		e.clientX > window.innerWidth - window.innerWidth / 3
+			// 	) {
+			// 		t = 0;
+			// 		play = true;
+			// 		direction = "RIGHT";
+			// 		console.log("autoplay right");
+			// 	}
+			// });
 		});
 	}
 

@@ -34,12 +34,12 @@
 	left: 50%;
 	min-width: 100vw;
 	position: relative;
-	overflow: hidden;
-	cursor: none;
-	cursor: none;
+
+
 
 
 	&__cursor {
+		display: none;
 		opacity: 0;
 		position: absolute;
 		width: 0;
@@ -94,6 +94,7 @@
 		line-height: 0;
 		position: relative;
 		transition: box-shadow 0.3s;
+		cursor: pointer;
 
 		.swiper-slide-active & {
 			@media(min-width:992px) {
@@ -110,7 +111,16 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			transition: transform 0.6s;
+			transform: scale(1.0);
 
+			.swiper-slide:hover & {
+				transform: scale(1.04);
+			}
+
+			.popup-gallery__swiper & {
+				transform: scale(1.0) !important;
+			}
 		}
 
 		&::before {

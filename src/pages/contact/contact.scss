@@ -8,3 +8,18 @@
 		gap: 10px 60px;
 	}
 }
+
+.ur-adress {
+	p {
+		width: 100%;
+		margin-left: 0;
+	}
+
+	a {
+		color: rgb(255, 96, 44);
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}

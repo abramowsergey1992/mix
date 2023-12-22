@@ -11,10 +11,10 @@
 
 	.popup-gallery__slider {
 		position: relative;
-		cursor: none !important;
 	}
 
 	&__cursor {
+		display: none;
 		opacity: 0;
 		position: absolute;
 		width: 0;
